@@ -1,3 +1,7 @@
+using Aplication;
+using Domain.Interfaces;
+using Infraestructur;
+using Infraestructur.Interface;
 using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,9 +12,12 @@ builder.Services.AddScoped<SqlConnection>(p =>
     var conection = builder.Configuration.GetConnectionString("DbConnection");
     return  new SqlConnection(conection);
 }
-); 
+);
 
 // Add services .
+
+builder.Services.AddScoped<ITransaccionesClientes, TransaccionesClientes>();
+builder.Services.AddScoped<ITransaccionesAplication, TransaccionesAplication>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

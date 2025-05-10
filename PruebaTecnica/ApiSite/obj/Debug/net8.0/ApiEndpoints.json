@@ -1,0 +1,23 @@
+[
+  {
+    "ContainingType": "ApiSite.Controllers.TransaccionesClientesController",
+    "Method": "Get",
+    "RelativePath": "TransaccionesClientes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

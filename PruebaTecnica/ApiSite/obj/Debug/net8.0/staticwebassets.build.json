@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Axs5BoIUMqyLaOIonjwmoXH2Ce5zwTFA+sRWuAjNQcI=",
+  "Source": "ApiSite",
+  "BasePath": "_content/ApiSite",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

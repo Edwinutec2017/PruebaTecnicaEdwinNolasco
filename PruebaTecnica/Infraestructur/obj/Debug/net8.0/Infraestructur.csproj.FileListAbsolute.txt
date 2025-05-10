@@ -1,0 +1,16 @@
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\bin\Debug\net8.0\Infraestructur.deps.json
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\bin\Debug\net8.0\Infraestructur.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\bin\Debug\net8.0\Infraestructur.pdb
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\bin\Debug\net8.0\Domain.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\bin\Debug\net8.0\Domain.pdb
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\obj\Debug\net8.0\Infraestructur.csproj.AssemblyReference.cache
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\obj\Debug\net8.0\Infraestructur.GeneratedMSBuildEditorConfig.editorconfig
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\obj\Debug\net8.0\Infraestructur.AssemblyInfoInputs.cache
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\obj\Debug\net8.0\Infraestructur.AssemblyInfo.cs
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\obj\Debug\net8.0\Infraestructur.csproj.CoreCompileInputs.cache
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\obj\Debug\net8.0\Infraestructur.sourcelink.json
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\obj\Debug\net8.0\Infraest.E25BADBA.Up2Date
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\obj\Debug\net8.0\Infraestructur.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\obj\Debug\net8.0\refint\Infraestructur.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\obj\Debug\net8.0\Infraestructur.pdb
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Infraestructur\obj\Debug\net8.0\ref\Infraestructur.dll
