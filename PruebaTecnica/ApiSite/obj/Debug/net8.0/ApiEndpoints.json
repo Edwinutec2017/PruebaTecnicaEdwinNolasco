@@ -1,9 +1,9 @@
 [
   {
     "ContainingType": "ApiSite.Controllers.TransaccionesClientesController",
-    "Method": "Get",
-    "RelativePath": "TransaccionesClientes",
-    "HttpMethod": "GET",
+    "Method": "GetClientes",
+    "RelativePath": "TransaccionesClientes/Consulta",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
@@ -17,7 +17,6 @@
         ],
         "StatusCode": 200
       }
-    ],
-    "EndpointName": "GetWeatherForecast"
+    ]
   }
 ]

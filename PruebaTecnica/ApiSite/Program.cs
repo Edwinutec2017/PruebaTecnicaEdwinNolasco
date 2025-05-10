@@ -13,6 +13,7 @@ builder.Services.AddScoped<SqlConnection>(p =>
     return  new SqlConnection(conection);
 }
 );
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
 // Add services .
 

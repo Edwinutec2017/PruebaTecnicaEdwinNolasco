@@ -5,12 +5,11 @@
     "version": "1.0"
   },
   "paths": {
-    "/TransaccionesClientes": {
-      "get": {
+    "/TransaccionesClientes/Consulta": {
+      "post": {
         "tags": [
           "TransaccionesClientes"
         ],
-        "operationId": "GetWeatherForecast",
         "responses": {
           "200": {
             "description": "OK",

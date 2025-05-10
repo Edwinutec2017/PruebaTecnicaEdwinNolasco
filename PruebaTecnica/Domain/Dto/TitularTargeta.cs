@@ -10,7 +10,7 @@ namespace Domain.Dto
     {
         public int CodCliente { get; set; }
         public string NombreTitular { get;set; }
-        public string NumeroTargte { get; set; }
+        public string NumeroTargeta { get; set; }
         public decimal LimiteCredito { get; set; }
         public decimal SaldoActual { get; set; }
         public decimal SaldoDisponible { get;set;}

@@ -1,8 +1,10 @@
-﻿using Domain.Dto;
+﻿using AutoMapper;
+using Domain.Dto;
 using Infraestructur.Interface;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,28 +14,29 @@ namespace Infraestructur
     public class TransaccionesClientes : ITransaccionesClientes
     {
         private readonly SqlConnection _connection;
+        private readonly IMapper _mapper;
 
 
-        public TransaccionesClientes(SqlConnection sqlConnection) 
+        public TransaccionesClientes(SqlConnection sqlConnection, IMapper mapper ) 
         {
         _connection = sqlConnection;
+           _mapper = mapper;
         }
 
         public async Task<List<TitularTargeta>> GetClientes()
         {
+            var clientes = new List<TitularTargeta>();
             try
             {
-                await _connection.OpenAsync();
+                  _connection.Open();
                 string query = "SELECT * FROM targeta_titular";
                 using (var commad= new SqlCommand(query,_connection)) 
                 {
                     using (var reader= commad.ExecuteReader()) 
                     {
-
-                        var  clientes = new List<TitularTargeta>();
-                        while (reader.Read()) 
+                        while (reader.Read())
                         {
-                            var resulta = await commad.ExecuteScalarAsync();
+                            clientes.Add( _mapper.Map<IDataReader, TitularTargeta>(reader));
                         }
                     }
                 }
@@ -44,9 +47,9 @@ namespace Infraestructur
             }
             finally 
             {
-            await _connection.CloseAsync();
+             _connection.Close();
             }
-            return new List<TitularTargeta>();
+            return await Task.FromResult(clientes);
 
         }
     }
