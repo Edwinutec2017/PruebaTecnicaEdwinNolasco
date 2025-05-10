@@ -28,8 +28,8 @@ namespace Infraestructur
             var clientes = new List<TitularTargeta>();
             try
             {
-                  _connection.Open();
-                string query = "SELECT * FROM targeta_titular";
+                 _connection.Open();
+                string query = "EXEC  LISTA_CLIENTES";
                 using (var commad= new SqlCommand(query,_connection)) 
                 {
                     using (var reader= commad.ExecuteReader()) 

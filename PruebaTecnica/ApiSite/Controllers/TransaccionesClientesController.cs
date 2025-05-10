@@ -16,10 +16,9 @@ namespace ApiSite.Controllers
         _transaccionesAplication = transaccionesAplication;
         }
 
-        [HttpPost("Consulta")]
+        [HttpPost("ConsultaClientes")]
         public async Task<GenericResponse<List<TitularTargeta>>>  GetClientes()
         {
-
             try
             {
                 return new GenericResponse<List<TitularTargeta>>()

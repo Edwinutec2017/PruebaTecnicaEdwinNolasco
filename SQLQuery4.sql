@@ -30,3 +30,8 @@ fecha_pago date,
   FOREIGN KEY (id_titular) REFERENCES targeta_titular(id_titular)
 );
 
+CREATE PROCEDURE LISTA_CLIENTES
+AS 
+BEGIN
+SELECT * FROM targeta_titular
+END;
