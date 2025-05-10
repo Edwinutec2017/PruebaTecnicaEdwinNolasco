@@ -28,7 +28,7 @@ namespace ApiSite.Controllers
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.OK,
-                        Message = "Registro de asesoría creado correctamente"
+                        Message = ""
                     },
                 };
             }
