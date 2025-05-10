@@ -88,6 +88,29 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Aplication/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Aplication.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Aplication.dll": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
       }
     }
   },
@@ -439,10 +462,22 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Aplication/1.0.0": {
+      "type": "project",
+      "path": "../Aplication/Aplication.csproj",
+      "msbuildProject": "../Aplication/Aplication.csproj"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Aplication >= 1.0.0",
+      "Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -480,7 +515,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\Repo\\PruebaTecnicaEdwinNolasco\\PruebaTecnica\\Aplication\\Aplication.csproj": {
+              "projectPath": "E:\\Repo\\PruebaTecnicaEdwinNolasco\\PruebaTecnica\\Aplication\\Aplication.csproj"
+            },
+            "E:\\Repo\\PruebaTecnicaEdwinNolasco\\PruebaTecnica\\Domain\\Domain.csproj": {
+              "projectPath": "E:\\Repo\\PruebaTecnicaEdwinNolasco\\PruebaTecnica\\Domain\\Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
