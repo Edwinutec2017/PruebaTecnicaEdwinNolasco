@@ -10,7 +10,7 @@ builder.Services.AddScoped<SqlConnection>(p =>
 }
 ); 
 
-// Add services to the container.
+// Add services .
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
