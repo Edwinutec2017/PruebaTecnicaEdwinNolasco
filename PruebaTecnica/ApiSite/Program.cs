@@ -1,4 +1,5 @@
 using Aplication;
+using Domain.Dto;
 using Domain.Interfaces;
 using Infraestructur;
 using Infraestructur.Interface;
@@ -25,6 +26,7 @@ builder.Logging.AddLog4Net(new Log4NetProviderOptions
 
 builder.Services.AddScoped<ITransaccionesClientes, TransaccionesClientes>();
 builder.Services.AddScoped<ITransaccionesAplication, TransaccionesAplication>();
+builder.Services.AddScoped(typeof(IUnitOfWork<>),typeof(UnitOfWork<>));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
