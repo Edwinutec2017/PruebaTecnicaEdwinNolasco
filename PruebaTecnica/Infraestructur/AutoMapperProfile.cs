@@ -36,12 +36,12 @@ namespace Infraestructur
                          opt => opt.MapFrom(src => src["id_titular"]))
                    .ForMember(dest => dest.Description,
                          opt => opt.MapFrom(src => src["decription"].ToString()))
-                    .ForMember(dest => dest.Description,
+                    .ForMember(dest => dest.Monto,
                          opt => opt.MapFrom(src => Convert.ToDecimal(src["monto"])))
-                       .ForMember(dest => dest.Description,
+                       .ForMember(dest => dest.Tipo,
                          opt => opt.MapFrom(src => src["tipo"].ToString()))
-                   .ForMember(dest => dest.Monto,
-                         opt => opt.MapFrom(src => Convert.ToDateTime(src["fecha_transaccion"].ToString()))); 
+                   .ForMember(dest => dest.FechaTransaccion,
+                         opt => opt.MapFrom(src => Convert.ToDateTime(src["fecha_transaccion"]))); 
 
         }
     }

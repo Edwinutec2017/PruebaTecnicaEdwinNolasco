@@ -39,6 +39,25 @@
         "tags": [
           "TransaccionesClientes"
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transacciones"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transacciones"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transacciones"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -56,6 +75,105 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/StringGenericResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/TransaccionesClientes/TransaccionAddPagos": {
+      "post": {
+        "tags": [
+          "TransaccionesClientes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transacciones"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transacciones"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transacciones"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGenericResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGenericResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGenericResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/TransaccionesClientes/TransaccionClientes": {
+      "post": {
+        "tags": [
+          "TransaccionesClientes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransaccionesListGenericResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransaccionesListGenericResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransaccionesListGenericResponse"
                 }
               }
             }
@@ -210,6 +328,60 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TitularTargeta"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Transacciones": {
+        "required": [
+          "description",
+          "tipo"
+        ],
+        "type": "object",
+        "properties": {
+          "codTransaccion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "codCliente": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "monto": {
+            "type": "number",
+            "format": "double"
+          },
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaTransaccion": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransaccionesListGenericResponse": {
+        "required": [
+          "item",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ResponseStatus"
+          },
+          "item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Transacciones"
             },
             "nullable": true
           }

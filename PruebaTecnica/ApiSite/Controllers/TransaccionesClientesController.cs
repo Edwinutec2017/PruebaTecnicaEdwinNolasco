@@ -122,7 +122,7 @@ namespace ApiSite.Controllers
             {
                 return new GenericResponse<List<Transacciones>>()
                 {
-                    Item = await _transaccionesAplication.GetTransacciones(codcliente),
+                    Item = await _transaccionesAplication.GetTransacciones(1),
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.OK,
