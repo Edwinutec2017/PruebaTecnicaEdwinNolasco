@@ -18,20 +18,25 @@ namespace Aplication
         _transaccionesClientes = transaccionesClientes;
         }
 
-        public async Task<string> AddCompras(Compras compras)
+        public async Task<string> AddCompras(Transacciones compras)
         {
            return await _transaccionesClientes.AddCompras(compras);
         }
 
-        public Task<string> AddPagos(Pagos pagos)
+        public async Task<string> AddPagos(Transacciones pagos)
         {
-            throw new NotImplementedException();
+          return await _transaccionesClientes.AddPagos(pagos);
         }
 
         public async  Task<List<TitularTargeta>> GetClientes()
         {
          
            return  await _transaccionesClientes.GetClientes();
+        }
+
+        public async Task<List<Transacciones>> GetTransacciones(int codCliente)
+        {
+            return await _transaccionesClientes.GetTransacciones(codCliente);
         }
     }
 }

@@ -29,6 +29,20 @@ namespace Infraestructur
                  .ForMember(dest => dest.SaldoDisponible,
                          opt => opt.MapFrom(src => Convert.ToDecimal(src["saldo_disponible"])));
 
+            CreateMap<IDataReader, Transacciones>()
+                  .ForMember(dest => dest.CodTransaccion,
+                         opt => opt.MapFrom(src => src["id_transaccion"]))
+                   .ForMember(dest => dest.CodCliente,
+                         opt => opt.MapFrom(src => src["id_titular"]))
+                   .ForMember(dest => dest.Description,
+                         opt => opt.MapFrom(src => src["decription"].ToString()))
+                    .ForMember(dest => dest.Description,
+                         opt => opt.MapFrom(src => Convert.ToDecimal(src["monto"])))
+                       .ForMember(dest => dest.Description,
+                         opt => opt.MapFrom(src => src["tipo"].ToString()))
+                   .ForMember(dest => dest.Monto,
+                         opt => opt.MapFrom(src => Convert.ToDateTime(src["fecha_transaccion"].ToString()))); 
+
         }
     }
 }

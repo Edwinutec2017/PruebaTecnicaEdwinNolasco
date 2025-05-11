@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace Domain.Dto
 {
-    public class Compras
+    public class Transacciones
     {
+        public int CodTransaccion { get; set; }
+
         public int CodCliente { get; set; }
 
         public required string Description { get; set; }
 
         public decimal Monto { get; set; }
 
-        public required string Tipo { get;set; }
+        public required string Tipo { get; set; }
 
-        public  DateTime FechaCompra { get; set; }
+        public DateTime FechaTransaccion { get; set; }
     }
 }

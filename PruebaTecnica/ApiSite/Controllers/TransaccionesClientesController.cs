@@ -52,20 +52,13 @@ namespace ApiSite.Controllers
         }
 
         [HttpPost("TransaccionAddCompras")]
-        public async Task<GenericResponse<string>> Compras()
+        public async Task<GenericResponse<string>> Compras([FromBody] Transacciones compras)
         {
             try
             {
                 return new GenericResponse<string>()
                 {
-                    Item = await _transaccionesAplication.AddCompras(new Compras()
-                    {
-                        CodCliente = 1,
-                        Description = "Compra comida ",
-                        Monto = decimal.Parse("100.50"),
-                        Tipo = "Compra",
-                        FechaCompra = DateTime.Now.Date
-                    }),
+                    Item = await _transaccionesAplication.AddCompras(compras),
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.OK,
@@ -79,6 +72,70 @@ namespace ApiSite.Controllers
                 return new GenericResponse<string>()
                 {
                     Item = "",
+                    Status = new ResponseStatus()
+                    {
+                        HttpCode = HttpStatusCode.InternalServerError,
+                        Message = "" + ex.Message
+                    },
+
+                };
+
+            }
+        }
+
+        [HttpPost("TransaccionAddPagos")]
+        public async Task<GenericResponse<string>> Pagos([FromBody] Transacciones pagos)
+        {
+            try
+            {
+                return new GenericResponse<string>()
+                {
+                    Item = await _transaccionesAplication.AddPagos(pagos),
+                    Status = new ResponseStatus()
+                    {
+                        HttpCode = HttpStatusCode.OK,
+                        Message = ""
+                    },
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning($"Ocurrio un error al consultar los clientes-{ex.Message}");
+                return new GenericResponse<string>()
+                {
+                    Item = "",
+                    Status = new ResponseStatus()
+                    {
+                        HttpCode = HttpStatusCode.InternalServerError,
+                        Message = "" + ex.Message
+                    },
+
+                };
+
+            }
+        }
+
+        [HttpPost("TransaccionClientes")]
+        public async Task<GenericResponse<List<Transacciones>>> GetTransacciones([FromBody] int codcliente)
+        {
+            try
+            {
+                return new GenericResponse<List<Transacciones>>()
+                {
+                    Item = await _transaccionesAplication.GetTransacciones(codcliente),
+                    Status = new ResponseStatus()
+                    {
+                        HttpCode = HttpStatusCode.OK,
+                        Message = ""
+                    },
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning($"Ocurrio un error al consultar los clientes-{ex.Message}");
+                return new GenericResponse<List<Transacciones>>()
+                {
+                    Item = new List<Transacciones>(),
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.InternalServerError,
