@@ -6,7 +6,7 @@
   },
   "paths": {
     "/TransaccionesClientes/ConsultaClientes": {
-      "post": {
+      "get": {
         "tags": [
           "TransaccionesClientes"
         ],
@@ -27,6 +27,35 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TitularTargetaListGenericResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/TransaccionesClientes/TransaccionAddCompras": {
+      "post": {
+        "tags": [
+          "TransaccionesClientes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGenericResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGenericResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGenericResponse"
                 }
               }
             }
@@ -105,12 +134,32 @@
         "format": "int32"
       },
       "ResponseStatus": {
+        "required": [
+          "message"
+        ],
         "type": "object",
         "properties": {
           "httpCode": {
             "$ref": "#/components/schemas/HttpStatusCode"
           },
           "message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringGenericResponse": {
+        "required": [
+          "item",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ResponseStatus"
+          },
+          "item": {
             "type": "string",
             "nullable": true
           }
@@ -148,6 +197,10 @@
         "additionalProperties": false
       },
       "TitularTargetaListGenericResponse": {
+        "required": [
+          "item",
+          "status"
+        ],
         "type": "object",
         "properties": {
           "status": {

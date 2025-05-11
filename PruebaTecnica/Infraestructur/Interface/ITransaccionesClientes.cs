@@ -9,6 +9,11 @@ namespace Infraestructur.Interface
 {
     public interface ITransaccionesClientes
     {
+        //Lista de clientes 
         Task<List<TitularTargeta>> GetClientes();
+        //Registro de compras 
+        Task<string> AddCompras(Compras compras);
+        //Registro de Pagos
+        Task<string> AddPagos(Pagos pagos);
     }
 }

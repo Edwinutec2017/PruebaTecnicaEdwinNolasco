@@ -11,6 +11,10 @@ namespace Domain.Interfaces
     {
         Task<List<TitularTargeta>> GetClientes();
 
+        Task<string> AddCompras(Compras compras);
+
+        Task<string> AddPagos(Pagos pagos);
+
 
 
     }

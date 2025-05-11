@@ -19,7 +19,7 @@ namespace ApiSite.Controllers
             _logger = logger;
         }
 
-        [HttpPost("ConsultaClientes")]
+        [HttpGet("ConsultaClientes")]
         public async Task<GenericResponse<List<TitularTargeta>>>  GetClientes()
         {
             try
@@ -50,5 +50,45 @@ namespace ApiSite.Controllers
 
              }
         }
+
+        [HttpPost("TransaccionAddCompras")]
+        public async Task<GenericResponse<string>> Compras()
+        {
+            try
+            {
+                return new GenericResponse<string>()
+                {
+                    Item = await _transaccionesAplication.AddCompras(new Compras()
+                    {
+                        CodCliente = 1,
+                        Description = "Compra comida ",
+                        Monto = decimal.Parse("100.50"),
+                        Tipo = "Compra",
+                        FechaCompra = DateTime.Now.Date
+                    }),
+                    Status = new ResponseStatus()
+                    {
+                        HttpCode = HttpStatusCode.OK,
+                        Message = ""
+                    },
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning($"Ocurrio un error al consultar los clientes-{ex.Message}");
+                return new GenericResponse<string>()
+                {
+                    Item = "",
+                    Status = new ResponseStatus()
+                    {
+                        HttpCode = HttpStatusCode.InternalServerError,
+                        Message = "" + ex.Message
+                    },
+
+                };
+
+            }
+        }
+
     }
 }
