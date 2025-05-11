@@ -2,7 +2,7 @@
   {
     "ContainingType": "ApiSite.Controllers.TransaccionesClientesController",
     "Method": "GetClientes",
-    "RelativePath": "TransaccionesClientes/Consulta",
+    "RelativePath": "TransaccionesClientes/ConsultaClientes",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

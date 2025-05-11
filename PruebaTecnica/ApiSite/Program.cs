@@ -15,6 +15,12 @@ builder.Services.AddScoped<SqlConnection>(p =>
 );
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
+builder.Logging.AddLog4Net(new Log4NetProviderOptions
+{
+    Log4NetConfigFileName = "log4net.config",
+    Watch = true // Para detectar cambios en el archivo de configuración
+});
+
 // Add services .
 
 builder.Services.AddScoped<ITransaccionesClientes, TransaccionesClientes>();

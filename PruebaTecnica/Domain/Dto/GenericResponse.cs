@@ -10,13 +10,13 @@ namespace Domain.Dto
 {
     public class GenericResponse<T>
     {
-        public ResponseStatus Status { get; set; }
-        public T Item { get; set; }
+        public required ResponseStatus Status { get; set; }
+        public required T Item { get; set; }
     }
     public class ResponseStatus
     {
         public HttpStatusCode HttpCode { get; set; }
-        public string Message { get; set; }
+        public required string Message { get; set; }
     }
 }
     

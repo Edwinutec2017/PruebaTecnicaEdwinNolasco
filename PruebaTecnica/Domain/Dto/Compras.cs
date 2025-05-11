@@ -9,9 +9,13 @@ namespace Domain.Dto
     public class Compras
     {
         public int CodCliente { get; set; }
-        public string Description { get; set; }
+
+        public required string Description { get; set; }
+
         public decimal Monto { get; set; }
-        public string Tipo { get;set; }
+
+        public required string Tipo { get;set; }
+
         public  DateTime FechaCompra { get; set; }
     }
 }

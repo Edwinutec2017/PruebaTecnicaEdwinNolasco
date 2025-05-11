@@ -1,5 +1,6 @@
 ﻿using Domain.Dto;
 using Domain.Interfaces;
+using Infraestructur;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -10,10 +11,12 @@ namespace ApiSite.Controllers
     public class TransaccionesClientesController : ControllerBase
     {
         private readonly ITransaccionesAplication _transaccionesAplication;
+        private readonly ILogger<TransaccionesClientesController> _logger;
 
-        public TransaccionesClientesController(ITransaccionesAplication transaccionesAplication)
+        public TransaccionesClientesController(ITransaccionesAplication transaccionesAplication, ILogger<TransaccionesClientesController> logger)
         {
         _transaccionesAplication = transaccionesAplication;
+            _logger = logger;
         }
 
         [HttpPost("ConsultaClientes")]
@@ -33,6 +36,7 @@ namespace ApiSite.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogWarning($"Ocurrio un error al consultar los clientes-{ex.Message}");
                 return new GenericResponse<List<TitularTargeta>>()
                 {
                     Item = [],

@@ -2,6 +2,7 @@
 using Domain.Dto;
 using Infraestructur.Interface;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,12 +16,15 @@ namespace Infraestructur
     {
         private readonly SqlConnection _connection;
         private readonly IMapper _mapper;
+        private readonly ILogger<TransaccionesClientes> _logger;
 
 
-        public TransaccionesClientes(SqlConnection sqlConnection, IMapper mapper ) 
+
+        public TransaccionesClientes(SqlConnection sqlConnection, IMapper mapper, ILogger<TransaccionesClientes> logger ) 
         {
         _connection = sqlConnection;
            _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<List<TitularTargeta>> GetClientes()
@@ -43,7 +47,7 @@ namespace Infraestructur
             }
             catch (Exception ex)
             {
-
+                _logger.LogError($"Ocurrio un erro en la consulta de clientes {ex.Message}");
             }
             finally 
             {
