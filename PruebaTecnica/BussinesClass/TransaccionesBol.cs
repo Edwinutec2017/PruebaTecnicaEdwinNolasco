@@ -68,16 +68,9 @@ namespace BussinesClass
                 clienteTransacciones.Porcentaje = _parametrosTasas.PorcentageConfigurable;
                 clienteTransacciones.Interes=_parametrosTasas.InteresCofigurable;
 
-
-
-                var fecha = clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra")).Select(e =>e.FechaTransaccion).FirstOrDefault();
-
-                var da = DateTime.Parse(fecha.ToString("dd/MM/yyyy"));
-
-
+                clienteTransacciones.TotalComprasMesActual = Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual)).Sum(e => e.Monto));
+                clienteTransacciones.TotalComprasMesAnterior = Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesAnterior)).Sum(e => e.Monto));
                 clienteTransacciones.Transacciones=clienteTransacciones.Transacciones.Where(e=>e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual) ).Select(e=>e).ToList();
-                clienteTransacciones.TotalComprasMesActual =Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && Convert.ToDateTime(e.FechaTransaccion.ToString("dd/MM/yyyy")).Month.Equals(mesActuual)).Sum(e => e.Monto));
-                clienteTransacciones.TotalComprasMesAnterior = Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && Convert.ToDateTime(e.FechaTransaccion.ToString("dd/MM/yyyy")).Month.Equals(mesAnterior)).Sum(e => e.Monto));
 
             }
             return clienteTransacciones;

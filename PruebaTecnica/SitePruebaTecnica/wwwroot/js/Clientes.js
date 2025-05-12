@@ -30,8 +30,19 @@
 
 }
 
+
+function AddPagos(codCliente)
+{
+    $('#addCompras').modal('show');
+
+}
+
 function CloseModal()
 {
     $('#clienteTransaccion').modal('hide');
+}
+
+function CloseModalCompras() {
+    $('#addCompras').modal('hide');
 }
 

@@ -2,16 +2,18 @@
 
 <div class="container">
         <div class="row">
-        <div class="col-12 col-md-4" style="  text-align:left"><label>Titular: @Model.Clientes.NombreTitular</label></div>
-        <div class="col-12 col-md-4" style="  text-align:left"><label>Num Targeta: @Model.Clientes.NumeroTargeta</label></div>
-        <div class="col-12 col-md-4" style="  text-align:left"><label>Credito:  @Model.Clientes.LimiteCredito</label></div>
-        <div class="col-12 col-md-4" style="  text-align:left"><label>Saldo Actual: @Model.Clientes.SaldoActual</label></div>
-        <div class="col-12 col-md-4" style="  text-align:left"><label>Saldo disponible: @Model.Clientes.SaldoDisponible</label></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Titular: @Model.Clientes.NombreTitular</label></h5></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Num Targeta: @Model.Clientes.NumeroTargeta</label></h5></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Credito $:  @Model.Clientes.LimiteCredito</label></h5></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Saldo Actual $: @Model.Clientes.SaldoActual</label></h5></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Saldo disponible $: @Model.Clientes.SaldoDisponible</label></h5></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Total Compras mes $: @Model.TotalComprasMesActual</label></h5></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><h6><label>Total Compras mes anterior $: @Model.TotalComprasMesAnterior</label></h6></div>
         </div>
 
     <div class="row">
         <div class="col-12 col-md-4" style="text-align:left">
-            <button type="button" class="btn btn-secondary">
+            <button type="button" class="btn btn-primary" onclick="AddPagos(1);">
                Registro Compras
             </button>
         </div>
@@ -40,9 +42,9 @@
                         foreach (var item in Model.Transacciones)
                         {
                             <tr style="  text-align:left">
-                                <td>@item.FechaTransaccion</td>
+                                <td>@item.FechaTransaccion.ToString("dd/MM/yyyy")</td>
                                 <td>@item.Description</td>
-                                <td>@item.Monto</td>
+                                <td>$ @item.Monto</td>
                             </tr>
 
                         }
@@ -54,6 +56,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 <script>
     $(document).ready(function() {
