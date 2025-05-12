@@ -16,6 +16,7 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\bin\Debug\net8.0\Microso
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\bin\Debug\net8.0\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
@@ -88,4 +89,3 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\refint\
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\ApiSite.pdb
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\ApiSite.genruntimeconfig.cache
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\ref\ApiSite.dll
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\bin\Debug\net8.0\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll

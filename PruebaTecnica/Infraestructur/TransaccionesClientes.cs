@@ -132,10 +132,10 @@ namespace Infraestructur
             var clientes = new List<TitularTargeta>();
             try
             {
-                string query = "EXEC  cliente_id @codCliente";
+                string query = "EXEC CLIENTE @codCliente";
                 var param = new List<ParametrosConsultas>()
                 {
-                new(){Tipo="@CodCliente", Valor=codCliente,}
+                new(){Tipo="@codCliente", Valor=codCliente,}
                 };
 
                 clientes = await _unitOfWorkClientes.GetAll(query, param);

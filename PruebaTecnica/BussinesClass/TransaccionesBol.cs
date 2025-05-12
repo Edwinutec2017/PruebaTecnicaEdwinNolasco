@@ -12,10 +12,13 @@ namespace BussinesClass
     public class TransaccionesBol : ITransaccionesClientes
     {
         private readonly ITransaccionesService _transaccionesService;
+        private readonly ParametrosTasas _parametrosTasas;
 
-        public TransaccionesBol(ITransaccionesService transaccionesService) 
+
+        public TransaccionesBol(ITransaccionesService transaccionesService, ParametrosTasas parametrosTasas) 
         {
         _transaccionesService = transaccionesService;
+         _parametrosTasas = parametrosTasas;
         }   
 
         public Task<bool> AddCompras(TransaccionesDto transaccionesDto)
@@ -33,9 +36,54 @@ namespace BussinesClass
             return await _transaccionesService.GetClientes();
         }
 
-        public Task<List<TransaccionesDto>> GetTransacciones(ClienteInput cliente)
+        public async Task<ClienteTransacciones> GetTransacciones(ClienteInput cliente)
         {
-            throw new NotImplementedException();
+            ClienteTransacciones clienteTransacciones= new ClienteTransacciones();
+            try
+            {
+
+                clienteTransacciones.Clientes = await _transaccionesService.GetCliente(cliente);
+                clienteTransacciones.Transacciones = await _transaccionesService.GetTransacciones(cliente);
+
+                clienteTransacciones = CalculodeSaldos(clienteTransacciones);
+
+            }
+            catch (Exception ex) 
+            {
+            
+            }
+            return clienteTransacciones;
         }
+
+
+        private ClienteTransacciones CalculodeSaldos(ClienteTransacciones clienteTransacciones) 
+        {
+         
+            var  mesActuual = DateTime.Now.Month;
+            var mesAnterior = DateTime.Now.AddMonths(-1).Month;
+
+            if (clienteTransacciones!=null) 
+            {
+
+                clienteTransacciones.Porcentaje = _parametrosTasas.PorcentageConfigurable;
+                clienteTransacciones.Interes=_parametrosTasas.InteresCofigurable;
+
+
+
+                var fecha = clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra")).Select(e =>e.FechaTransaccion).FirstOrDefault();
+
+                var da = DateTime.Parse(fecha.ToString("dd/MM/yyyy"));
+
+
+                clienteTransacciones.Transacciones=clienteTransacciones.Transacciones.Where(e=>e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual) ).Select(e=>e).ToList();
+                clienteTransacciones.TotalComprasMesActual =Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && Convert.ToDateTime(e.FechaTransaccion.ToString("dd/MM/yyyy")).Month.Equals(mesActuual)).Sum(e => e.Monto));
+                clienteTransacciones.TotalComprasMesAnterior = Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && Convert.ToDateTime(e.FechaTransaccion.ToString("dd/MM/yyyy")).Month.Equals(mesAnterior)).Sum(e => e.Monto));
+
+            }
+            return clienteTransacciones;
+        }
+
+
+
     }
 }

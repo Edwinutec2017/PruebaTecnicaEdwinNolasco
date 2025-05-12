@@ -10,5 +10,7 @@ namespace Services.Interfaces
     public interface ITransaccionesService
     {
         Task<List<TitularTargetaDto>> GetClientes();
+        Task<List<TransaccionesDto>> GetTransacciones(ClienteInput clienteInput);
+        Task<TitularTargetaDto> GetCliente(ClienteInput clienteInput);
     }
 }

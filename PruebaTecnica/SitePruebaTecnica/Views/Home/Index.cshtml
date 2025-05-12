@@ -1,8 +1,13 @@
 ﻿@model SitePruebaTecnica.Models.ClientesModel;
 @{
     ViewData["Title"] = "Home Page";
-}
 
+    string UrlTransacciones = @Url.Action("ClienteTransacciones", "Home");
+}
+   
+<script type="text/javascript">
+    var urlObtenerTransacciones = '@UrlTransacciones';
+</script>
 
 
 
@@ -26,10 +31,10 @@
         <tbody>
             @foreach (var item in Model.Clientes)
             {
-                <tr>
+                <tr style="  text-align:left">
                     <td>@item.NombreTitular</td>
                     <td>
-                        <button type="button" class="btn btn-secondary"  onclick="ModalClientes(@item.CodCliente);" >
+                        <button type="button" class="btn btn-secondary"  onclick="Clientes(@item.CodCliente);" >
                            Transacciones 
                         </button>
                     </td>
@@ -51,7 +56,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="d-flex justify-content-center">
-                      <div id="container">
+                      <div id="container-partial">
 
                       </div>
                     </div>

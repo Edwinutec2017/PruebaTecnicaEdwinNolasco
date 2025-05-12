@@ -148,7 +148,7 @@ namespace ApiSite.Controllers
         }
 
         [HttpPost("ConsultaClienteCod")]
-        public async Task<GenericResponse<TitularTargeta>> GetClienteId([FromBody]ClienteInput cliente)
+        public async Task<GenericResponse<TitularTargeta>> GetClienteId(ClienteInput cliente)
         {
             try
             {

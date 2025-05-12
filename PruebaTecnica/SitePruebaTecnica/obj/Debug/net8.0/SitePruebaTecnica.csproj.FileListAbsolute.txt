@@ -7,6 +7,7 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\SitePruebaTecnica.runtimeconfig.json
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\SitePruebaTecnica.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\SitePruebaTecnica.pdb
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\Newtonsoft.Json.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\BussinesClass.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\Dtos.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\Services.dll
@@ -41,4 +42,3 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\SitePruebaTecnica.pdb
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\SitePruebaTecnica.genruntimeconfig.cache
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\ref\SitePruebaTecnica.dll
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\Newtonsoft.Json.dll

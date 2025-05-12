@@ -1,4 +1,5 @@
 using BussinesClass.Interfaces;
+using Dtos.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
 using SitePruebaTecnica.Models;
@@ -33,10 +34,34 @@ namespace SitePruebaTecnica.Controllers
             return View(model);
         }
 
-        public IActionResult Privacy()
+
+        [HttpPost]
+        public async Task<ActionResult> ClienteTransacciones(ClienteInput clienteInput)
         {
-            return View();
+            ClienteTransaccionModel model = new();
+            try
+            {
+                var transacciones = await _transaccionesClientes.GetTransacciones(clienteInput);
+
+                model.Clientes=transacciones.Clientes;
+                model.Transacciones=transacciones.Transacciones;
+                model.TotalComprasMesActual=transacciones.TotalComprasMesActual;
+                model.TotalComprasMesAnterior=transacciones.TotalComprasMesAnterior;
+                model.Interes=transacciones.Interes;
+                model.Porcentaje=transacciones.Porcentaje;
+
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error en el inicio de consultas  {ex.Message}");
+            }
+
+            return PartialView("_Cliente", model);
         }
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

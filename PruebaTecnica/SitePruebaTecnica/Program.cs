@@ -13,6 +13,16 @@ builder.Services.AddControllersWithViews();
 EndpointsDto endpoint = new() { UrlBackenApi = builder.Configuration.GetSection("Back").GetSection("UrlBackenApi").Value };
 builder.Services.AddSingleton<EndpointsDto>(endpoint);
 
+//Tasas de interes
+
+ParametrosTasas parametrosTasas = new()
+{
+    InteresCofigurable= Convert.ToDouble(builder.Configuration.GetSection("Tasas_Interes").GetSection("Interes_configurable").Value),
+    PorcentageConfigurable= Convert.ToDouble(builder.Configuration.GetSection("Tasas_Interes").GetSection("Porcentage_configurable").Value),
+};
+
+builder.Services.AddSingleton<ParametrosTasas>(parametrosTasas);
+
 builder.Services.AddScoped<ITransaccionesClientes, TransaccionesBol>();
 builder.Services.AddScoped<ITransaccionesService, TransaccionesService>();
 

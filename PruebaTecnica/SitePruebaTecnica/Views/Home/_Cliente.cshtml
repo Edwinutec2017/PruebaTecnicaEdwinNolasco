@@ -1,37 +1,54 @@
-﻿  <div class="container">
+﻿@model SitePruebaTecnica.Models.ClienteTransaccionModel;
+
+<div class="container">
         <div class="row">
-            <div class="col-12 col-md-4"><label>Titular:</label></div>
-            <div class="col-12 col-md-4"><label>Num Targeta:</label></div>
-            <div class="col-12 col-md-4"><label>Credito:</label></div>
-             <div class="col-12 col-md-4"><label>Saldo Actual:</label></div>
-             <div class="col-12 col-md-4"><label>Saldo disponible:</label></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><label>Titular: @Model.Clientes.NombreTitular</label></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><label>Num Targeta: @Model.Clientes.NumeroTargeta</label></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><label>Credito:  @Model.Clientes.LimiteCredito</label></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><label>Saldo Actual: @Model.Clientes.SaldoActual</label></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><label>Saldo disponible: @Model.Clientes.SaldoDisponible</label></div>
         </div>
 
-
+    <div class="row">
+        <div class="col-12 col-md-4" style="text-align:left">
+            <button type="button" class="btn btn-secondary">
+               Registro Compras
+            </button>
+        </div>
+        <div class="col-12 col-md-4" style="text-align:left">
+            <button type="button" class="btn btn-secondary">
+                Registro Pagos
+            </button>
+        </div>
+     
+    </div>
 
     <div class="row">
         <div class="col-12 col-md-12">
             <h1>Transacciones del cliente  </h1>
             <table id="transacciones" class="table table-striped" style="width:100%">
-                <thead>
+                <thead style="  text-align:left">
                     <tr>
-                        <th>Clientes</th>
-                        <th>Acciones</th>
+                        <th>Fecha Compra</th>
+                        <th>Descripcion</th>
+                        <th>Monto</th>
                     </tr>
                 </thead>
                 <tbody>
-                 @*    @foreach (var item in Model.Clientes)
+                    @if(Model.Transacciones != null && Model.Transacciones.Count>0)
                     {
-                        <tr>
-                            <td>@item.NombreTitular</td>
-                            <td>
-                                <button type="button" value="@item.CodCliente" class="btn btn-secondary" data-toggle="modal" onclick="ModalClientes();" data-target="#cliente">
-                                    Transacciones
-                                </button>
-                            </td>
-                        </tr>
+                        foreach (var item in Model.Transacciones)
+                        {
+                            <tr style="  text-align:left">
+                                <td>@item.FechaTransaccion</td>
+                                <td>@item.Description</td>
+                                <td>@item.Monto</td>
+                            </tr>
 
-                    } *@
+                        }
+                    
+                    }
+
                 </tbody>
             </table>
         </div>
