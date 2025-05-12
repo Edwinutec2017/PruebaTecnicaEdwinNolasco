@@ -14,7 +14,7 @@ namespace Infraestructur.Interface
         Task<List<T>> GetAll(string query,List<ParametrosConsultas> param);
         Task DeleteItem(string query, List<ParametrosConsultas> param);
         Task AddItem(string query, List<ParametrosConsultas> param);
-        Task UpdateItem(string query, List<ParametrosConsultas> param);
+        Task<bool> UpdateItem(string query, List<ParametrosConsultas> param);
 
 
     }

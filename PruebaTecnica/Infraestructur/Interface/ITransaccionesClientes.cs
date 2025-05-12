@@ -17,5 +17,10 @@ namespace Infraestructur.Interface
         Task<string> AddPagos(Transacciones pagos);
         //Transacciones 
         Task<List<Transacciones>> GetTransacciones(int codCliente );
+        //Actualizacion de saldo
+        Task<bool> ActualizarSaldos(TitularTargeta cliente);
+        //Lista de clientes Id 
+        Task<TitularTargeta> GetClientesCodCliente(int codCliente);
+
     }
 }

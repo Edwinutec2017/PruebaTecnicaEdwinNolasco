@@ -27,6 +27,29 @@ namespace Infraestructur
             _unitOfWorkClientesTransacciones = unitOfWorkTransacciones;
         }
 
+        public async Task<bool> ActualizarSaldos(TitularTargeta cliente)
+        {
+            bool resp=false;
+            try
+            {
+                string query = "EXEC actualizar_saldos @saldo_actual, @saldo_disponible,@CodCliente";
+                var param = new List<ParametrosConsultas>()
+                {
+                  new(){Tipo="@CodCliente", Valor=cliente.CodCliente},
+                  new(){Tipo="@saldo_actual", Valor=cliente.SaldoActual},
+                  new(){Tipo="@saldo_disponible", Valor=cliente.SaldoDisponible},
+                };
+
+               resp = await _unitOfWorkClientes.UpdateItem(query, param);
+               
+            }
+            catch (Exception ex) 
+            {
+                _logger.LogError($"Ocurrio un error en la actualizacion de saldos {ex.Message}");
+            }
+            return resp;
+        }
+
         public async Task<string> AddCompras(Transacciones compras)
         {
             string response = "";
@@ -104,6 +127,27 @@ namespace Infraestructur
                 _logger.LogError($"Ocurrio un error-GetClientes {ex.Message}");
             }
             return clientes;
+        }
+
+        public async Task<TitularTargeta> GetClientesCodCliente(int codCliente)
+        {
+            var clientes = new List<TitularTargeta>();
+            try
+            {
+                string query = "EXEC  cliente_id @codCliente";
+                var param = new List<ParametrosConsultas>()
+                {
+                new(){Tipo="@CodCliente", Valor=codCliente,}
+                };
+
+                clientes = await _unitOfWorkClientes.GetAll(query, param);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Ocurrio un error-GetClientes {ex.Message}");
+            }
+            return clientes.First();
         }
 
         public async Task<List<Transacciones>> GetTransacciones(int codCliente)

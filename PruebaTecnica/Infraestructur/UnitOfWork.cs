@@ -157,8 +157,9 @@ namespace Infraestructur
             return reponse;
         }
 
-        public async Task UpdateItem(string query, List<ParametrosConsultas> param)
+        public async Task<bool> UpdateItem(string query, List<ParametrosConsultas> param)
         {
+            bool resp=false;
             try
             {
                 _connection.Open();
@@ -175,9 +176,10 @@ namespace Infraestructur
                             }
 
                         }
-                        await command.ExecuteScalarAsync();
+                        int  result=  await command.ExecuteNonQueryAsync();
+                        resp = result>0;
 
-                        transaccion.Commit();
+                       transaccion.Commit();
 
                     }
                     catch (Exception ex)
@@ -197,6 +199,8 @@ namespace Infraestructur
             {
                 await _connection.CloseAsync();
             }
+
+            return resp;
         }
     }
 
