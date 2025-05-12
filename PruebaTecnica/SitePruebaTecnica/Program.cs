@@ -1,11 +1,13 @@
 using Dtos.Dtos;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.Configure<EndpointsDto>(builder.Configuration.GetSection("Back"));
+EndpointsDto endpoint = new() { UrlBackenApi = builder.Configuration.GetSection("Back").GetSection("UrlBackenApi").Value };
+builder.Services.AddSingleton<EndpointsDto>(endpoint);
 
 
 var app = builder.Build();

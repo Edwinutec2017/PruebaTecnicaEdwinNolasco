@@ -9,6 +9,7 @@ create table targeta_titular
 	saldo_disponible decimal(12, 2)  default 0.00,
 	primary key(id_titular)
 );
+
 create table transacciones 
 (
 id_transaccion int primary key IDENTITY(1, 1),
@@ -31,5 +32,17 @@ CREATE PROCEDURE ESTADO_CUENTAS @CodCliente INT
 AS 
 BEGIN
 select * from transacciones where id_titular=@CodCliente;
+END;
+
+CREATE PROCEDURE actualizar_saldos @saldo_actual decimal(12, 2), @saldo_disponible decimal(12, 2),@CodCliente INT
+as 
+begin
+UPDATE targeta_titular SET saldo_actual=@saldo_actual,saldo_disponible=@saldo_disponible WHERE id_titular=@CodCliente; 
+end;
+
+CREATE PROCEDURE cliente_id @codCliente INT
+AS 
+BEGIN
+SELECT * FROM targeta_titular WHERE id_titular=@codCliente;
 END;
 

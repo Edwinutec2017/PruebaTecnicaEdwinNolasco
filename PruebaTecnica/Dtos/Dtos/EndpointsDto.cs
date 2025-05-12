@@ -8,7 +8,8 @@ namespace Dtos.Dtos
 {
     public class EndpointsDto
     {
-        public required string UrlBackenApi { get; set; }
+
+        public string? UrlBackenApi { get; set; }
 
         
 
