@@ -52,11 +52,11 @@ namespace ApiSite.Controllers
         }
 
         [HttpPost("TransaccionAddCompras")]
-        public async Task<GenericResponse<string>> Compras([FromBody] Transacciones compras)
+        public async Task<GenericResponse<bool>> Compras([FromBody] Transacciones compras)
         {
             try
             {
-                return new GenericResponse<string>()
+                return new GenericResponse<bool>()
                 {
                     Item = await _transaccionesAplication.AddCompras(compras),
                     Status = new ResponseStatus()
@@ -69,9 +69,9 @@ namespace ApiSite.Controllers
             catch (Exception ex)
             {
                 _logger.LogWarning($"Ocurrio un error al consultar los clientes-{ex.Message}");
-                return new GenericResponse<string>()
+                return new GenericResponse<bool>()
                 {
-                    Item = "",
+                    Item = false,
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.InternalServerError,
@@ -84,11 +84,11 @@ namespace ApiSite.Controllers
         }
 
         [HttpPost("TransaccionAddPagos")]
-        public async Task<GenericResponse<string>> Pagos([FromBody] Transacciones pagos)
+        public async Task<GenericResponse<bool>> Pagos([FromBody] Transacciones pagos)
         {
             try
             {
-                return new GenericResponse<string>()
+                return new GenericResponse<bool>()
                 {
                     Item = await _transaccionesAplication.AddPagos(pagos),
                     Status = new ResponseStatus()
@@ -101,9 +101,9 @@ namespace ApiSite.Controllers
             catch (Exception ex)
             {
                 _logger.LogWarning($"Ocurrio un error al consultar los clientes-{ex.Message}");
-                return new GenericResponse<string>()
+                return new GenericResponse<bool>()
                 {
-                    Item = "",
+                    Item = false,
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.InternalServerError,

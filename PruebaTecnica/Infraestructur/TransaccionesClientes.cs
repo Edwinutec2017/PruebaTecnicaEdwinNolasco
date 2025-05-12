@@ -50,9 +50,9 @@ namespace Infraestructur
             return resp;
         }
 
-        public async Task<string> AddCompras(Transacciones compras)
+        public async Task<bool> AddCompras(Transacciones compras)
         {
-            string response = "";
+            bool response =false;
 
             try
             {
@@ -68,11 +68,10 @@ namespace Infraestructur
 
                 await _unitOfWorkClientesTransacciones.AddItem(query, param);
 
-                response = "Compra registrada";
+                response = true;
             }
             catch (Exception ex) 
             {
-                response = "Ocurrio un error en la compra";
                 _logger.LogError($"Ocurrio un error -AddCompras {ex.Message}");
             }
 
@@ -80,9 +79,9 @@ namespace Infraestructur
         }
 
 
-        public async Task<string> AddPagos(Transacciones pagos)
+        public async Task<bool> AddPagos(Transacciones pagos)
         {
-            string response = "";
+            bool response = false;
 
             try
             {
@@ -98,11 +97,10 @@ namespace Infraestructur
 
                 await _unitOfWorkClientesTransacciones.AddItem(query, param);
 
-                response = "Pago registrado";
+                response = true;
             }
             catch (Exception ex)
             {
-                response = "Ocurrio un error en la compra";
                 _logger.LogError($"Ocurrio un error -AddPagos {ex.Message}");
             }
 

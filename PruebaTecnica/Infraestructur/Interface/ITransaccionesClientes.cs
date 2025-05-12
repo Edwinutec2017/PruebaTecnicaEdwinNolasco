@@ -12,9 +12,9 @@ namespace Infraestructur.Interface
         //Lista de clientes 
         Task<List<TitularTargeta>> GetClientes();
         //Registro de compras 
-        Task<string> AddCompras(Transacciones compras);
+        Task<bool> AddCompras(Transacciones compras);
         //Registro de Pagos
-        Task<string> AddPagos(Transacciones pagos);
+        Task<bool> AddPagos(Transacciones pagos);
         //Transacciones 
         Task<List<Transacciones>> GetTransacciones(int codCliente );
         //Actualizacion de saldo

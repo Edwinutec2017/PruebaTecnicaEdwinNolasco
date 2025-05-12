@@ -18,12 +18,12 @@ namespace Aplication
         _transaccionesClientes = transaccionesClientes;
         }
 
-        public async Task<string> AddCompras(Transacciones compras)
+        public async Task<bool> AddCompras(Transacciones compras)
         {
            return await _transaccionesClientes.AddCompras(compras);
         }
 
-        public async Task<string> AddPagos(Transacciones pagos)
+        public async Task<bool> AddPagos(Transacciones pagos)
         {
           return await _transaccionesClientes.AddPagos(pagos);
         }
