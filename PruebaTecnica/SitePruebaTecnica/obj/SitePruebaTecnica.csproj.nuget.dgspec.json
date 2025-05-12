@@ -33,7 +33,14 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\Repo\\PruebaTecnicaEdwinNolasco\\PruebaTecnica\\Dtos\\Dtos.csproj": {
+                "projectPath": "E:\\Repo\\PruebaTecnicaEdwinNolasco\\PruebaTecnica\\Dtos\\Dtos.csproj"
+              },
+              "E:\\Repo\\PruebaTecnicaEdwinNolasco\\PruebaTecnica\\Services\\Services.csproj": {
+                "projectPath": "E:\\Repo\\PruebaTecnicaEdwinNolasco\\PruebaTecnica\\Services\\Services.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -167,7 +174,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\Repo\\PruebaTecnicaEdwinNolasco\\PruebaTecnica\\Dtos\\Dtos.csproj": {
+                "projectPath": "E:\\Repo\\PruebaTecnicaEdwinNolasco\\PruebaTecnica\\Dtos\\Dtos.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
