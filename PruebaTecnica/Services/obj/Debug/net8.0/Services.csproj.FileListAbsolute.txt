@@ -10,3 +10,7 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Services\obj\Debug\net8.0\Servic
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Services\obj\Debug\net8.0\refint\Services.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Services\obj\Debug\net8.0\Services.pdb
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Services\obj\Debug\net8.0\ref\Services.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Services\bin\Debug\net8.0\Dtos.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Services\bin\Debug\net8.0\Dtos.pdb
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Services\obj\Debug\net8.0\Services.csproj.AssemblyReference.cache
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Services\obj\Debug\net8.0\Services.csproj.Up2Date

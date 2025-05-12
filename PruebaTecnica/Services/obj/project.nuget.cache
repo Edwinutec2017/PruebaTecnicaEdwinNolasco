@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "R07IYPj3/tI=",
+  "dgSpecHash": "L/kneHGEZqw=",
   "success": true,
   "projectFilePath": "E:\\Repo\\PruebaTecnicaEdwinNolasco\\PruebaTecnica\\Services\\Services.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\edwin nolasco\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

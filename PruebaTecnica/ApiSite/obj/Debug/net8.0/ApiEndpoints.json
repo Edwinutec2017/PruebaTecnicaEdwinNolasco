@@ -1,6 +1,32 @@
 [
   {
     "ContainingType": "ApiSite.Controllers.TransaccionesClientesController",
+    "Method": "GetClienteId",
+    "RelativePath": "TransaccionesClientes/ConsultaClienteCod",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cliente",
+        "Type": "Domain.Dto.ClienteInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Domain.Dto.GenericResponse\u00601[[Domain.Dto.TitularTargeta, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ApiSite.Controllers.TransaccionesClientesController",
     "Method": "GetClientes",
     "RelativePath": "TransaccionesClientes/ConsultaClientes",
     "HttpMethod": "GET",
@@ -35,7 +61,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Domain.Dto.GenericResponse\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "Domain.Dto.GenericResponse\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -61,7 +87,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Domain.Dto.GenericResponse\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "Domain.Dto.GenericResponse\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -80,8 +106,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "codcliente",
-        "Type": "System.Int32",
+        "Name": "cliente",
+        "Type": "Domain.Dto.ClienteInput",
         "IsRequired": true
       }
     ],

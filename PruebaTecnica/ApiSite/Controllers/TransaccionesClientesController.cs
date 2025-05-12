@@ -68,7 +68,7 @@ namespace ApiSite.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogWarning($"Ocurrio un error al consultar los clientes-{ex.Message}");
+                _logger.LogWarning($"Ocurrio un error al registrar la compra {ex.Message}");
                 return new GenericResponse<bool>()
                 {
                     Item = false,
@@ -100,7 +100,7 @@ namespace ApiSite.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogWarning($"Ocurrio un error al consultar los clientes-{ex.Message}");
+                _logger.LogWarning($"Ocurrio un error al registrar el pago-{ex.Message}");
                 return new GenericResponse<bool>()
                 {
                     Item = false,
@@ -132,7 +132,7 @@ namespace ApiSite.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogWarning($"Ocurrio un error al consultar los clientes-{ex.Message}");
+                _logger.LogWarning($"Ocurrio un error al consultar el cliente-{ex.Message}");
                 return new GenericResponse<List<Transacciones>>()
                 {
                     Item = new List<Transacciones>(),

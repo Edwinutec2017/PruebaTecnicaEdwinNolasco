@@ -1,5 +1,9 @@
+using BussinesClass;
+using BussinesClass.Interfaces;
 using Dtos.Dtos;
 using Microsoft.Extensions.DependencyInjection;
+using Services;
+using Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +13,8 @@ builder.Services.AddControllersWithViews();
 EndpointsDto endpoint = new() { UrlBackenApi = builder.Configuration.GetSection("Back").GetSection("UrlBackenApi").Value };
 builder.Services.AddSingleton<EndpointsDto>(endpoint);
 
+builder.Services.AddScoped<ITransaccionesClientes, TransaccionesBol>();
+builder.Services.AddScoped<ITransaccionesService, TransaccionesService>();
 
 var app = builder.Build();
 

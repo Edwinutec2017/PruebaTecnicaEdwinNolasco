@@ -1,8 +1,57 @@
-﻿@{
+﻿@model SitePruebaTecnica.Models.ClientesModel;
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="text-center" style="width:75%">
+    <h1>Listado de clientes </h1>
+
+    <table id="cliente" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Clientes</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Clientes)
+            {
+                <tr>
+                    <td>@item.NombreTitular</td>
+                    <td><button value="@item.CodCliente">Transacciones</button></td>
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+
+    @section Scripts {
+        <script>
+            $(document).ready(function() {
+            $('#cliente').DataTable({
+             searching: true,
+            paging: true,
+            language: {
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "zeroRecords": "Sin resultados encontrados",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entrada",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            order: [[0, "asc"],[2,"desc"]]
+            });
+            });
+        </script>
+    }
+
 </div>
