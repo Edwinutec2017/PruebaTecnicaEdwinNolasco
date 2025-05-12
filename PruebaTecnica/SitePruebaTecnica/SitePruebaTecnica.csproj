@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\Clientes.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\Clientes.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BussinesClass\BussinesClass.csproj" />
     <ProjectReference Include="..\Dtos\Dtos.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />

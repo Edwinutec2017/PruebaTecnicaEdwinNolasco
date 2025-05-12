@@ -1,0 +1,64 @@
+﻿  <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4"><label>Titular:</label></div>
+            <div class="col-12 col-md-4"><label>Num Targeta:</label></div>
+            <div class="col-12 col-md-4"><label>Credito:</label></div>
+             <div class="col-12 col-md-4"><label>Saldo Actual:</label></div>
+             <div class="col-12 col-md-4"><label>Saldo disponible:</label></div>
+        </div>
+
+
+
+    <div class="row">
+        <div class="col-12 col-md-12">
+            <h1>Transacciones del cliente  </h1>
+            <table id="transacciones" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Clientes</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 @*    @foreach (var item in Model.Clientes)
+                    {
+                        <tr>
+                            <td>@item.NombreTitular</td>
+                            <td>
+                                <button type="button" value="@item.CodCliente" class="btn btn-secondary" data-toggle="modal" onclick="ModalClientes();" data-target="#cliente">
+                                    Transacciones
+                                </button>
+                            </td>
+                        </tr>
+
+                    } *@
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+    $('#transacciones').DataTable({
+     searching: true,
+    paging: true,
+    language: {
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "zeroRecords": "Sin resultados encontrados",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entrada",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+    },
+    order: [[0, "asc"],[2,"desc"]]
+    });
+    });
+</script>
