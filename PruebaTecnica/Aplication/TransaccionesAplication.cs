@@ -28,6 +28,11 @@ namespace Aplication
           return await _transaccionesClientes.AddPagos(pagos);
         }
 
+        public async Task<TitularTargeta> GetClienteCod(int cod)
+        {
+           return await _transaccionesClientes.GetClientesCodCliente(cod);
+        }
+
         public async  Task<List<TitularTargeta>> GetClientes()
         {
          

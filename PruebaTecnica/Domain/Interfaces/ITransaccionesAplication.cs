@@ -17,6 +17,8 @@ namespace Domain.Interfaces
 
         Task<List<Transacciones>> GetTransacciones(int codCliente);
 
+        Task<TitularTargeta> GetClienteCod(int cod);
+
 
 
     }

@@ -1,0 +1,12 @@
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\bin\Debug\net8.0\BussinesClass.deps.json
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\bin\Debug\net8.0\BussinesClass.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\bin\Debug\net8.0\BussinesClass.pdb
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\obj\Debug\net8.0\BussinesClass.GeneratedMSBuildEditorConfig.editorconfig
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\obj\Debug\net8.0\BussinesClass.AssemblyInfoInputs.cache
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\obj\Debug\net8.0\BussinesClass.AssemblyInfo.cs
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\obj\Debug\net8.0\BussinesClass.csproj.CoreCompileInputs.cache
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\obj\Debug\net8.0\BussinesClass.sourcelink.json
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\obj\Debug\net8.0\BussinesClass.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\obj\Debug\net8.0\refint\BussinesClass.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\obj\Debug\net8.0\BussinesClass.pdb
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\BussinesClass\obj\Debug\net8.0\ref\BussinesClass.dll

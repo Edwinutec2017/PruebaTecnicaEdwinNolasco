@@ -1,7 +1,12 @@
+using Dtos.Dtos;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<EndpointsDto>(builder.Configuration.GetSection("Back"));
+
 
 var app = builder.Build();
 

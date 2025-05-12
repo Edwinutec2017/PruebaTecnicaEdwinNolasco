@@ -116,13 +116,13 @@ namespace ApiSite.Controllers
         }
 
         [HttpPost("TransaccionClientes")]
-        public async Task<GenericResponse<List<Transacciones>>> GetTransacciones([FromBody] int codcliente)
+        public async Task<GenericResponse<List<Transacciones>>> GetTransacciones([FromBody] ClienteInput cliente)
         {
             try
             {
                 return new GenericResponse<List<Transacciones>>()
                 {
-                    Item = await _transaccionesAplication.GetTransacciones(1),
+                    Item = await _transaccionesAplication.GetTransacciones(cliente.CodCliente),
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.OK,
@@ -136,6 +136,38 @@ namespace ApiSite.Controllers
                 return new GenericResponse<List<Transacciones>>()
                 {
                     Item = new List<Transacciones>(),
+                    Status = new ResponseStatus()
+                    {
+                        HttpCode = HttpStatusCode.InternalServerError,
+                        Message = "" + ex.Message
+                    },
+
+                };
+
+            }
+        }
+
+        [HttpPost("ConsultaClienteCod")]
+        public async Task<GenericResponse<TitularTargeta>> GetClienteId([FromBody]ClienteInput cliente)
+        {
+            try
+            {
+                return new GenericResponse<TitularTargeta>()
+                {
+                    Item = await _transaccionesAplication.GetClienteCod(cliente.CodCliente),
+                    Status = new ResponseStatus()
+                    {
+                        HttpCode = HttpStatusCode.OK,
+                        Message = ""
+                    },
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning($"Ocurrio un error al consultar los clientes-{ex.Message}");
+                return new GenericResponse<TitularTargeta>()
+                {
+                    Item = new TitularTargeta(),
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.InternalServerError,

@@ -1,0 +1,12 @@
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\bin\Debug\net8.0\Dtos.deps.json
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\bin\Debug\net8.0\Dtos.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\bin\Debug\net8.0\Dtos.pdb
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\obj\Debug\net8.0\Dtos.GeneratedMSBuildEditorConfig.editorconfig
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\obj\Debug\net8.0\Dtos.AssemblyInfoInputs.cache
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\obj\Debug\net8.0\Dtos.AssemblyInfo.cs
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\obj\Debug\net8.0\Dtos.csproj.CoreCompileInputs.cache
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\obj\Debug\net8.0\Dtos.sourcelink.json
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\obj\Debug\net8.0\Dtos.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\obj\Debug\net8.0\refint\Dtos.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\obj\Debug\net8.0\Dtos.pdb
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Dtos\obj\Debug\net8.0\ref\Dtos.dll
