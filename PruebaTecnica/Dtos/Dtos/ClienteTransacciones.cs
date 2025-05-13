@@ -15,5 +15,7 @@ namespace Dtos.Dtos
         public double Interes { get; set; }
         public double Porcentaje { get; set; }
         public double InteresBonificable { get; set; }
+        public double TotalPagar { get; set; }
+        public double CuotaMinima { get; set; }
     }
 }

@@ -92,6 +92,15 @@ namespace BussinesClass
                 clienteTransacciones.TotalComprasMesActual = Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual)).Sum(e => e.Monto));
                 clienteTransacciones.TotalComprasMesAnterior = Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesAnterior)).Sum(e => e.Monto));
                 clienteTransacciones.Transacciones=clienteTransacciones.Transacciones.Where(e=>e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual) ).Select(e=>e).ToList();
+                clienteTransacciones.Clientes.SaldoDisponible = clienteTransacciones.Clientes.SaldoActual.Equals(0) ? clienteTransacciones.Clientes.LimiteCredito : clienteTransacciones.Clientes.SaldoDisponible;
+
+                clienteTransacciones.TotalPagar = (double)(clienteTransacciones.Clientes.SaldoActual != 0 ? clienteTransacciones.Clientes.SaldoActual : 0);
+
+                if (clienteTransacciones.Clientes.SaldoActual>0) 
+                {
+                    double coutaMinima = (double)clienteTransacciones.Clientes.SaldoActual * (_parametrosTasas.PorcentageConfigurable / 100);
+                    clienteTransacciones.CuotaMinima = coutaMinima;
+                }
 
 
                 if (clienteTransacciones.Clientes.SaldoActual>0) 

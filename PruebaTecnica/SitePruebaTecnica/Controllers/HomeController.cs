@@ -50,6 +50,8 @@ namespace SitePruebaTecnica.Controllers
                 model.Interes=transacciones.Interes;
                 model.Porcentaje=transacciones.Porcentaje;
                 model.InteresBonificable = transacciones.InteresBonificable;
+                model.TotalPagar=transacciones.TotalPagar;
+                model.CuotaMinima=transacciones.CuotaMinima;
 
 
 
@@ -130,6 +132,8 @@ namespace SitePruebaTecnica.Controllers
                 model.Interes = transacciones.Interes;
                 model.Porcentaje = transacciones.Porcentaje;
                 model.InteresBonificable = transacciones.InteresBonificable;
+                model.TotalPagar = transacciones.TotalPagar;
+                model.CuotaMinima = transacciones.CuotaMinima;
             }
             catch (Exception ex)
             {

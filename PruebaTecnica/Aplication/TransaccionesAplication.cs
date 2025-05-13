@@ -66,7 +66,7 @@ namespace Aplication
                     var saldoActual = cliente.SaldoActual + transaccion.Monto;
                     cliente.SaldoActual = saldoActual;
 
-                    var SaldoDisponible = cliente.LimiteCredito - cliente.SaldoActual;
+                    var SaldoDisponible = saldoActual.Equals(0)?cliente.LimiteCredito: cliente.LimiteCredito - cliente.SaldoActual;
 
                     cliente.SaldoDisponible = SaldoDisponible;
 
