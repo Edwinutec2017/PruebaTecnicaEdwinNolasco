@@ -79,6 +79,26 @@ namespace SitePruebaTecnica.Controllers
 
 
 
+        [HttpGet]
+        public async Task<ActionResult> Compras(TransaccionesComprasDto clienteInput)
+        {
+           // TransaccionesModel model = new();
+            try
+            {
+                //model.Transaccion = await _transaccionesClientes.Transacciones(clienteInput);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error en el inicio de consultas  {ex.Message}");
+            }
+
+            return View();
+        }
+
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -11,6 +11,8 @@ namespace SitePruebaTecnica.Models
        public double Interes { get; set; }
        public double Porcentaje { get; set; }
 
+        public TransaccionesComprasDto Compras { get; set; }
+
 
     }
 }

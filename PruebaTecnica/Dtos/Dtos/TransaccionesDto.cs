@@ -20,4 +20,17 @@ namespace Dtos.Dtos
 
         public DateTime FechaTransaccion { get; set; }
     }
+
+    public class TransaccionesComprasDto
+    {
+
+        public int CodCliente { get; set; }
+
+        public required string Description { get; set; }
+
+        public decimal Monto { get; set; }
+
+        public DateTime FechaTransaccion { get; set; }
+    }
+
 }
