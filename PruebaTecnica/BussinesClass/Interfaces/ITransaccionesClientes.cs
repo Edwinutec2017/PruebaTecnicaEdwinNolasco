@@ -9,7 +9,7 @@ namespace BussinesClass.Interfaces
 {
     public interface ITransaccionesClientes
     {
-        Task<bool> AddCompras(TransaccionesDto transaccionesDto);
+        Task<string> AddCompras(TransaccionesDto transaccionesDto);
         Task<bool> AddPagos(TransaccionesDto transaccionesDto);
         Task<ClienteTransacciones> GetTransacciones(ClienteInput cliente);
         Task<List<TitularTargetaDto>> GetClientes();

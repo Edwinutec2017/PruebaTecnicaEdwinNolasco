@@ -21,9 +21,26 @@ namespace BussinesClass
          _parametrosTasas = parametrosTasas;
         }   
 
-        public Task<bool> AddCompras(TransaccionesDto transaccionesDto)
+        public async Task<string> AddCompras(TransaccionesDto transaccionesDto)
         {
-            throw new NotImplementedException();
+            var resp = "";
+
+            try
+            {
+                if (transaccionesDto != null) 
+                {
+                    transaccionesDto.Tipo = "Compra";
+                     resp = await _transaccionesService.AddComprasCliente(transaccionesDto);
+
+                }
+
+            }
+            catch (Exception ex) 
+            {
+
+            }
+
+            return resp;
         }
 
         public Task<bool> AddPagos(TransaccionesDto transaccionesDto)
@@ -76,6 +93,11 @@ namespace BussinesClass
                 clienteTransacciones.TotalComprasMesAnterior = Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesAnterior)).Sum(e => e.Monto));
                 clienteTransacciones.Transacciones=clienteTransacciones.Transacciones.Where(e=>e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual) ).Select(e=>e).ToList();
 
+
+                if (clienteTransacciones.Clientes.SaldoActual>0) 
+                {
+                    clienteTransacciones.InteresBonificable = (double)clienteTransacciones.Clientes.SaldoActual * (100 / clienteTransacciones.Interes);
+                }
             }
             return clienteTransacciones;
         }

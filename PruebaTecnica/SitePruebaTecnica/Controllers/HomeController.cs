@@ -80,12 +80,12 @@ namespace SitePruebaTecnica.Controllers
 
 
         [HttpPost]
-        public async Task<bool> Compras(TransaccionesDto compras)
+        public async Task<string> Compras(TransaccionesDto compras)
         {
-           // TransaccionesModel model = new();
+            var respuesta = "";
             try
             {
-                //model.Transaccion = await _transaccionesClientes.Transacciones(clienteInput);
+                respuesta = await _transaccionesClientes.AddCompras(compras);
 
             }
             catch (Exception ex)
@@ -93,7 +93,7 @@ namespace SitePruebaTecnica.Controllers
                 _logger.LogError($"Error en el inicio de consultas  {ex.Message}");
             }
 
-            return true;
+            return respuesta;
         }
 
 

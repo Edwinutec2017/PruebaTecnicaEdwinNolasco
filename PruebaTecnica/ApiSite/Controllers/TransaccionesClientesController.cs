@@ -52,11 +52,11 @@ namespace ApiSite.Controllers
         }
 
         [HttpPost("TransaccionAddCompras")]
-        public async Task<GenericResponse<bool>> Compras([FromBody] Transacciones compras)
+        public async Task<GenericResponse<string>> Compras([FromBody]Transacciones compras)
         {
             try
             {
-                return new GenericResponse<bool>()
+                return new GenericResponse<string>()
                 {
                     Item = await _transaccionesAplication.AddCompras(compras),
                     Status = new ResponseStatus()
@@ -69,9 +69,9 @@ namespace ApiSite.Controllers
             catch (Exception ex)
             {
                 _logger.LogWarning($"Ocurrio un error al registrar la compra {ex.Message}");
-                return new GenericResponse<bool>()
+                return new GenericResponse<string>()
                 {
-                    Item = false,
+                    Item = "",
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.InternalServerError,
@@ -84,7 +84,7 @@ namespace ApiSite.Controllers
         }
 
         [HttpPost("TransaccionAddPagos")]
-        public async Task<GenericResponse<bool>> Pagos([FromBody] Transacciones pagos)
+        public async Task<GenericResponse<bool>> Pagos(Transacciones pagos)
         {
             try
             {
@@ -148,7 +148,7 @@ namespace ApiSite.Controllers
         }
 
         [HttpPost("ConsultaClienteCod")]
-        public async Task<GenericResponse<TitularTargeta>> GetClienteId(ClienteInput cliente)
+        public async Task<GenericResponse<TitularTargeta>> GetClienteId([FromBody]ClienteInput cliente)
         {
             try
             {

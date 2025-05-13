@@ -89,7 +89,15 @@ function AddCompras(CodCliente)
             type: 'POST',
             data: { compras },
             success: function (response) {
-                limpiarInputs();
+
+                if (response == "registrada") {
+                    limpiarInputs();
+                } else
+                {
+                    alert(response);
+                }
+
+               
                 //$("#container-partial").html(response);
                 //$('#clienteTransaccion').modal('show');
             },
