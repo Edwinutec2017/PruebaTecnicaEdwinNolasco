@@ -82,8 +82,6 @@ function AddCompras(CodCliente)
             Monto: monto.value,
             FechaTransaccion: fecha.value
         };
-
-
         $.ajax({
             url: urlComprasCliente,
             type: 'POST',
@@ -92,17 +90,15 @@ function AddCompras(CodCliente)
 
                 if (response == "registrada") {
                     limpiarInputs();
+                    ClienteEncabezado(compras.CodCliente);
                 } else
                 {
                     alert(response);
                 }
-
-               
-                //$("#container-partial").html(response);
-                //$('#clienteTransaccion').modal('show');
+            
             },
             error: function (response) {
-                console.log(response);
+                alert(response);
             },
             complete: function (response) {
                 $('#clienteload').modal('hide');
@@ -231,3 +227,48 @@ function CloseModalCompras() {
     $('#addCompras').modal('hide');
 }
 
+function ClienteEncabezado(codCliente) {
+    if (codCliente > 0) {
+        const clienteInput = { CodCliente: codCliente, };
+
+        $.ajax({
+            url: urlCliente,
+            type: 'POST',
+            data: { clienteInput },
+            success: function (response) {
+                $("#detalleCliente").html(response);
+                ClienteDetalle(clienteInput.CodCliente);
+            },
+            error: function (response) {
+                console.log(response);
+            },
+            complete: function (response) {
+                $('#clienteload').modal('hide');
+            }
+        });
+
+    }
+
+}
+function ClienteDetalle(codCliente) {
+    if (codCliente > 0) {
+        const clienteInput = { CodCliente: codCliente, };
+
+        $.ajax({
+            url: urlClienteDetalle,
+            type: 'POST',
+            data: { clienteInput },
+            success: function (response) {
+                $("#transaccion").html(response);
+            },
+            error: function (response) {
+                console.log(response);
+            },
+            complete: function (response) {
+                $('#clienteload').modal('hide');
+            }
+        });
+
+    } 
+
+}

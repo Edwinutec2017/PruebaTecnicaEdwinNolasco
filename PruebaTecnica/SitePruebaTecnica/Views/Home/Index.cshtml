@@ -6,16 +6,18 @@
     string UrlTransaccionesClientes = @Url.Action("Transacciones", "Home");
     string UrlComprasClientes = @Url.Action("Compras", "Home");
     string UrlPagosClientes = @Url.Action("Pagos", "Home");
+    string UrlCliente = @Url.Action("ClienteEncabezado", "Home");
+    string UrlClienteDetalle = @Url.Action("ClienteDetalle", "Home");
 }
-   
+
 <script type="text/javascript">
     var urlObtenerTransacciones = '@UrlTransacciones';
     var urlObtenerTransaccionesCliente = '@UrlTransaccionesClientes';
-     var urlComprasCliente = '@UrlComprasClientes';
-     var urlPagosCliente = '@UrlPagosClientes';
+    var urlComprasCliente = '@UrlComprasClientes';
+    var urlPagosCliente = '@UrlPagosClientes';
+    var urlCliente = '@UrlCliente';
+    var urlClienteDetalle='@UrlClienteDetalle';
 </script>
-
-
 
 
 <!-- CSS de Bootstrap -->
@@ -26,30 +28,44 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <div class="text-center" style="width:80%">
-    <h1>Listado de clientes </h1>
-    <table id="cliente" class="table table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th>Clientes</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Clientes)
-            {
-                <tr style="  text-align:left">
-                    <td>@item.NombreTitular</td>
-                    <td>
-                        <button type="button" class="btn btn-secondary"  onclick="Clientes(@item.CodCliente);" >
-                           Transacciones 
-                        </button>
-                    </td>
+    
+    @if (Model.Clientes != null && Model.Clientes.Count > 0)
+    {
+        <h1>Listado de clientes </h1>
+        <table id="cliente" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Clientes</th>
+                    <th>Acciones</th>
                 </tr>
+            </thead>
+            <tbody>
 
-            }
-        </tbody>
+                @foreach (var item in Model.Clientes)
+                {
+                    <tr style="  text-align:left">
+                        <td>@item.NombreTitular</td>
+                        <td>
+                            <button type="button" class="btn btn-secondary" onclick="Clientes(@item.CodCliente);">
+                                Transacciones
+                            </button>
+                        </td>
+                    </tr>
 
-    </table>
+                }
+
+            </tbody>
+
+        </table>
+
+    }else
+    {
+        <div class="alert alert-primary" role="alert">
+            No existe informacion a mostrar 
+        </div>
+    
+    }
+
  
     <div class="modal " id="clienteTransaccion" >
         <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">

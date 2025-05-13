@@ -28,6 +28,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Repo/PruebaTecnicaEdwinNolasco/PruebaTecnica/SitePruebaTecnica/Views/Home/_ClienteDetalle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQ2xpZW50ZURldGFsbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Repo/PruebaTecnicaEdwinNolasco/PruebaTecnica/SitePruebaTecnica/Views/Home/_ClienteEncabezado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQ2xpZW50ZUVuY2FiZXphZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Repo/PruebaTecnicaEdwinNolasco/PruebaTecnica/SitePruebaTecnica/Views/Home/_Transacciones.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfVHJhbnNhY2Npb25lcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

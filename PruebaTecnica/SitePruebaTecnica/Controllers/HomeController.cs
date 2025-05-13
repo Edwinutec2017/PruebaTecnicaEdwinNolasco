@@ -117,7 +117,45 @@ namespace SitePruebaTecnica.Controllers
         }
 
 
+        [HttpPost]
+        public async Task<ActionResult> ClienteEncabezado(ClienteInput clienteInput)
+        {
+            ClienteTransaccionModel model = new();
+            try
+            {
+                var transacciones = await _transaccionesClientes.GetTransacciones(clienteInput);
+                model.Clientes = transacciones.Clientes;
+                model.TotalComprasMesActual = transacciones.TotalComprasMesActual;
+                model.TotalComprasMesAnterior = transacciones.TotalComprasMesAnterior;
+                model.Interes = transacciones.Interes;
+                model.Porcentaje = transacciones.Porcentaje;
+                model.InteresBonificable = transacciones.InteresBonificable;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error en el inicio de consultas  {ex.Message}");
+            }
 
+            return PartialView("_ClienteEncabezado", model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> ClienteDetalle(ClienteInput clienteInput)
+        {
+            ClienteTransaccionModel model = new();
+            try
+            {
+                var transacciones = await _transaccionesClientes.GetTransacciones(clienteInput);
+                model.Transacciones = transacciones.Transacciones;
+            
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error en el inicio de consultas  {ex.Message}");
+            }
+
+            return PartialView("_ClienteDetalle", model);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

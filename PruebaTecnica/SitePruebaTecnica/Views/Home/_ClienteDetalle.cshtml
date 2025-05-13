@@ -1,0 +1,58 @@
+﻿@model SitePruebaTecnica.Models.ClienteTransaccionModel;
+
+    <div class="row">
+        <div class="col-12 col-md-12">
+            <div id="transaccion">
+                <table id="transaccionesDetalle" class="table table-striped" style="width:100%">
+                    <thead style="  text-align:left">
+                        <tr>
+                            <th>Fecha Compra</th>
+                            <th>Descripcion</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Transacciones != null && Model.Transacciones.Count > 0)
+                        {
+                            foreach (var item in Model.Transacciones)
+                            {
+                                <tr style="  text-align:left">
+                                    <td>@item.FechaTransaccion.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.Description</td>
+                                    <td>$ @item.Monto</td>
+                                </tr>
+
+                            }
+                        }
+
+                    </tbody>
+                </table>
+
+         </div>
+        </div>
+    </div>
+
+<script>
+    $(document).ready(function() {
+    $('#transaccionesDetalle').DataTable({
+     searching: true,
+    paging: true,
+    language: {
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "zeroRecords": "Sin resultados encontrados",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entrada",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+    },
+    order: [[0, "asc"],[2,"desc"]]
+    });
+    });
+</script>
