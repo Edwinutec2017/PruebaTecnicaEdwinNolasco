@@ -79,8 +79,8 @@ namespace SitePruebaTecnica.Controllers
 
 
 
-        [HttpGet]
-        public async Task<ActionResult> Compras(TransaccionesComprasDto clienteInput)
+        [HttpPost]
+        public async Task<bool> Compras(TransaccionesDto compras)
         {
            // TransaccionesModel model = new();
             try
@@ -93,9 +93,26 @@ namespace SitePruebaTecnica.Controllers
                 _logger.LogError($"Error en el inicio de consultas  {ex.Message}");
             }
 
-            return View();
+            return true;
         }
 
+
+        [HttpPost]
+        public async Task<bool> Pagos(TransaccionesDto pagos)
+        {
+            // TransaccionesModel model = new();
+            try
+            {
+                //model.Transaccion = await _transaccionesClientes.Transacciones(clienteInput);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error en el inicio de consultas  {ex.Message}");
+            }
+
+            return true;
+        }
 
 
 

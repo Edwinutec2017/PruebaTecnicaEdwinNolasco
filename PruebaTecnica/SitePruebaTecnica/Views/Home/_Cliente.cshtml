@@ -38,12 +38,12 @@
                 <br />
                 <div class="row">
                     <div class="col-12 col-md-4" style="text-align:left">
-                        <button type="button" class="btn btn-primary" onclick="AddPagos(1);">
+                        <button type="button" class="btn btn-primary" onclick="Compras(1);">
                             Registro Compras
                         </button>
                     </div>
                     <div class="col-12 col-md-4" style="text-align:left">
-                        <button type="button" class="btn btn-secondary">
+                        <button type="button" class="btn btn-secondary" onclick="Pagos(1);">
                             Registro Pagos
                         </button>
                     </div>
@@ -60,34 +60,35 @@
     </div>
 
     <br />
-    <div class="row" id="frmPagosclientes">
+    <div class="row" id="frmclientes" hidden>
         <div class="col-12 col-md-12" style="  text-align:left">
 
             <section class="bordered-section">
               Registro de compras 
               <br />
                 <div class="row">
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-4" id="description">
                         <div class="form-group">
                             <label>Descripcion</label>
-                            @Html.TextBoxFor(model => model.Compras.Description, new
+                            @Html.TextBoxFor(model => model.Transaccion.Description, new
                                 {
                                     @class = "form-control",
                                     maxlength = "100",
                                     pattern = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$",
                                     title = "Solo se permiten letras y espacios",
-                                    oninput = "this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]/g,'')"
+                                    oninput = "this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]/g,'')",
+                                    required=true
                                 })
-                            @Html.ValidationMessageFor(model => model.Compras.Description)
+                            @Html.ValidationMessageFor(model => model.Transaccion.Description)
                         </div>
-
+                    
                     </div>
 
                     <div class="col-12 col-md-4">
                         <div class="form-group">
                             <label>Monto</label>
-                            @Html.TextBoxFor(model => model.Compras.Monto, new { @class = "form-control", type = "number", step = "0.01" })
-                            @Html.ValidationMessageFor(model => model.Compras.Monto)
+                            @Html.TextBoxFor(model => model.Transaccion.Monto, new { @class = "form-control", type = "number", step = "0.01", required = true })
+                            @Html.ValidationMessageFor(model => model.Transaccion.Monto)
                         </div>
 
                     </div>
@@ -96,20 +97,23 @@
 
                         <div class="form-group">
                             <label>Fecha de compra</label>
-                            @Html.TextBoxFor(model => model.Compras.FechaTransaccion, new { @class = "form-control", type = "date" })
-                            @Html.ValidationMessageFor(model => model.Compras.FechaTransaccion)
+                            @Html.TextBoxFor(model => model.Transaccion.FechaTransaccion, new { @class = "form-control", type = "date", required = true })
+                            @Html.ValidationMessageFor(model => model.Transaccion.FechaTransaccion)
                         </div>
 
                     </div>
                 </div>
                <div class="row">
-                    <div class="col-12 col-md-3">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    <div class="col-12 col-md-1">
+                        <button type="submit" class="btn btn-secondary" onclick="Compras(0)">Cerrar</button>
                     </div>
+                    <div class="col-12 col-md-1">
+                        <button type="submit" class="btn btn-primary" onclick="Transaciones(@Model.Clientes.CodCliente);">Enviar</button>
+                    </div>
+                    
                </div>
             
             </section>
-       
         </div>
       
     </div>
