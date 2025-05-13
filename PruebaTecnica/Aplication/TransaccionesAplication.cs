@@ -66,21 +66,29 @@ namespace Aplication
                     var saldoActual = cliente.SaldoActual + transaccion.Monto;
                     cliente.SaldoActual = saldoActual;
 
-                    var SaldoDisponible = cliente.LimiteCredito - transaccion.Monto;
+                    var SaldoDisponible = cliente.LimiteCredito - cliente.SaldoActual;
 
                     cliente.SaldoDisponible = SaldoDisponible;
+
 
 
                     if (cliente.SaldoActual <= cliente.LimiteCredito)
                     {
                         var updateSaldo = await _transaccionesClientes.ActualizarSaldos(cliente);
-                        resp = updateSaldo? "saldos":"Error en la actualizacion";
+                        resp = updateSaldo ? "saldos" : "Error en la actualizacion";
                     }
-                    else if(cliente.SaldoActual == cliente.LimiteCredito)
+                    else if (cliente.SaldoActual == cliente.LimiteCredito)
                     {
                         resp = "Ya llego al limite del credito";
                     }
-
+                    else if (cliente.SaldoActual > cliente.LimiteCredito) 
+                    {
+                        resp = $"La compra sobrepasa el limite de credito por ${cliente.SaldoActual-cliente.LimiteCredito}";
+                    }
+                    else if (cliente.SaldoDisponible.Equals(0))
+                    {
+                        resp = "No tiene  saldo disponible para realizar la compra ";
+                    }
                 }
 
             }

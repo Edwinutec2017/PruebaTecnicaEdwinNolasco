@@ -49,6 +49,8 @@ namespace SitePruebaTecnica.Controllers
                 model.TotalComprasMesAnterior=transacciones.TotalComprasMesAnterior;
                 model.Interes=transacciones.Interes;
                 model.Porcentaje=transacciones.Porcentaje;
+                model.InteresBonificable = transacciones.InteresBonificable;
+
 
 
             }

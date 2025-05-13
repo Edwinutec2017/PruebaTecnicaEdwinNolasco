@@ -96,7 +96,7 @@ namespace BussinesClass
 
                 if (clienteTransacciones.Clientes.SaldoActual>0) 
                 {
-                    clienteTransacciones.InteresBonificable = (double)clienteTransacciones.Clientes.SaldoActual * (100 / clienteTransacciones.Interes);
+                    clienteTransacciones.InteresBonificable = (double)clienteTransacciones.Clientes.SaldoActual * (clienteTransacciones.Interes/100);
                 }
             }
             return clienteTransacciones;

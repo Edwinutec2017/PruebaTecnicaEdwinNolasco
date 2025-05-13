@@ -10,6 +10,7 @@ namespace SitePruebaTecnica.Models
        public double TotalComprasMesAnterior { get; set; }
        public double Interes { get; set; }
        public double Porcentaje { get; set; }
+        public double InteresBonificable { get; set; }
 
         public TransaccionesDto Transaccion { get; set; }
      
