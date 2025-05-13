@@ -33,7 +33,29 @@
 
 function AddPagos(codCliente)
 {
-    $('#addCompras').modal('show');
+   
+
+}
+
+function HistorialTransaccion(codCliente)
+{
+    $('#clienteload').modal('show');
+    const clienteInput = { CodCliente: codCliente, };
+    console.log(urlObtenerTransaccionesCliente);
+    $.ajax({
+        url: urlObtenerTransaccionesCliente,
+        type: 'POST',
+        data: { clienteInput },
+        success: function (response) {
+            $("#transaccion").html(response);
+        },
+        error: function (response) {
+            console.log(response);
+        },
+        complete: function (response) {
+            $('#clienteload').modal('hide');
+        }
+    });
 
 }
 

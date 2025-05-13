@@ -3,10 +3,12 @@
     ViewData["Title"] = "Home Page";
 
     string UrlTransacciones = @Url.Action("ClienteTransacciones", "Home");
+    string UrlTransaccionesClientes = @Url.Action("Transacciones", "Home");
 }
    
 <script type="text/javascript">
     var urlObtenerTransacciones = '@UrlTransacciones';
+    var urlObtenerTransaccionesCliente = '@UrlTransaccionesClientes';
 </script>
 
 

@@ -3,7 +3,7 @@
 <div class="container">
         <div class="row">
         <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Titular: @Model.Clientes.NombreTitular</label></h5></div>
-        <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Num Targeta: @Model.Clientes.NumeroTargeta</label></h5></div>
+        <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Num Tarjeta: @Model.Clientes.NumeroTargeta</label></h5></div>
         <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Credito $:  @Model.Clientes.LimiteCredito</label></h5></div>
         <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Saldo Actual $: @Model.Clientes.SaldoActual</label></h5></div>
         <div class="col-12 col-md-4" style="  text-align:left"><h5><label>Saldo disponible $: @Model.Clientes.SaldoDisponible</label></h5></div>
@@ -22,37 +22,43 @@
                 Registro Pagos
             </button>
         </div>
-     
+        <div class="col-12 col-md-4" style="text-align:left" onclick="HistorialTransaccion(@Model.Clientes.CodCliente);">
+            <button type="button" class="btn btn-warning">
+              Historial transacciones
+            </button>
+        </div>
     </div>
 
     <div class="row">
         <div class="col-12 col-md-12">
             <h1>Transacciones del cliente  </h1>
-            <table id="transacciones" class="table table-striped" style="width:100%">
-                <thead style="  text-align:left">
-                    <tr>
-                        <th>Fecha Compra</th>
-                        <th>Descripcion</th>
-                        <th>Monto</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if(Model.Transacciones != null && Model.Transacciones.Count>0)
-                    {
-                        foreach (var item in Model.Transacciones)
+            <div id="transaccion">
+                <table id="transacciones" class="table table-striped" style="width:100%">
+                    <thead style="  text-align:left">
+                        <tr>
+                            <th>Fecha Compra</th>
+                            <th>Descripcion</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Transacciones != null && Model.Transacciones.Count > 0)
                         {
-                            <tr style="  text-align:left">
-                                <td>@item.FechaTransaccion.ToString("dd/MM/yyyy")</td>
-                                <td>@item.Description</td>
-                                <td>$ @item.Monto</td>
-                            </tr>
+                            foreach (var item in Model.Transacciones)
+                            {
+                                <tr style="  text-align:left">
+                                    <td>@item.FechaTransaccion.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.Description</td>
+                                    <td>$ @item.Monto</td>
+                                </tr>
 
+                            }
                         }
-                    
-                    }
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+
+         </div>
         </div>
     </div>
 </div>

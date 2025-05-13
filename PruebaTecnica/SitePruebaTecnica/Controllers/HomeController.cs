@@ -60,6 +60,23 @@ namespace SitePruebaTecnica.Controllers
             return PartialView("_Cliente", model);
         }
 
+        [HttpPost]
+        public async Task<ActionResult> Transacciones(ClienteInput clienteInput)
+        {
+            TransaccionesModel model = new();
+            try
+            {
+               model.Transaccion = await _transaccionesClientes.Transacciones(clienteInput);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error en el inicio de consultas  {ex.Message}");
+            }
+
+            return PartialView("_Transacciones", model);
+        }
+
 
 
 

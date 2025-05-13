@@ -1,0 +1,54 @@
+﻿@model SitePruebaTecnica.Models.TransaccionesModel;
+ 
+            <table id="transaccionCliente" class="table table-striped" style="width:100%">
+                <thead style="  text-align:left">
+                    <tr>
+                        <th>Fecha Compra</th>
+                        <th>Descripcion</th>
+                        <th>Tipo</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     @if (Model.Transaccion != null && Model.Transaccion.Count > 0)
+                    {
+                       foreach (var item in Model.Transaccion)
+                        {
+                            <tr style="  text-align:left">
+                                <td>@item.FechaTransaccion.ToString("dd/MM/yyyy")</td>
+                                <td>@item.Description</td>
+                                <td>@item.Tipo</td>
+                                <td>$ @item.Monto</td>
+                            </tr>
+
+                        }
+                    }
+
+                </tbody>
+            </table>
+
+
+<script>
+    $(document).ready(function() {
+    $('#transaccionCliente').DataTable({
+     searching: true,
+    paging: true,
+    language: {
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "zeroRecords": "Sin resultados encontrados",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entrada",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+    },
+    order: [[0, "desc"]]
+    });
+    });
+</script>

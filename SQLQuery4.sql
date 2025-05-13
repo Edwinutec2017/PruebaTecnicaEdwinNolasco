@@ -40,9 +40,12 @@ begin
 UPDATE targeta_titular SET saldo_actual=@saldo_actual,saldo_disponible=@saldo_disponible WHERE id_titular=@CodCliente; 
 end;
 
-CREATE PROCEDURE cliente_id @codCliente INT
+CREATE PROCEDURE CLIENTE @codCliente INT
 AS 
 BEGIN
 SELECT * FROM targeta_titular WHERE id_titular=@codCliente;
 END;
 
+
+
+          

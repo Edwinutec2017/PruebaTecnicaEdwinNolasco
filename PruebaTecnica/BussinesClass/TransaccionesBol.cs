@@ -55,6 +55,10 @@ namespace BussinesClass
             return clienteTransacciones;
         }
 
+        public async Task<List<TransaccionesDto>> Transacciones(ClienteInput cliente)
+        {
+            return await _transaccionesService.GetTransacciones(cliente);
+        }
 
         private ClienteTransacciones CalculodeSaldos(ClienteTransacciones clienteTransacciones) 
         {

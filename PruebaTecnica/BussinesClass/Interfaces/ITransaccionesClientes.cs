@@ -13,5 +13,6 @@ namespace BussinesClass.Interfaces
         Task<bool> AddPagos(TransaccionesDto transaccionesDto);
         Task<ClienteTransacciones> GetTransacciones(ClienteInput cliente);
         Task<List<TitularTargetaDto>> GetClientes();
+        Task<List<TransaccionesDto>> Transacciones(ClienteInput cliente);
     }
 }
