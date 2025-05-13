@@ -35,7 +35,7 @@
             <div class="col-12 col-md-12" style="  text-align:left">
             <section class="bordered-section">
                 Acciones
-
+                <br />
                 <div class="row">
                     <div class="col-12 col-md-4" style="text-align:left">
                         <button type="button" class="btn btn-primary" onclick="AddPagos(1);">
@@ -65,7 +65,7 @@
 
             <section class="bordered-section">
               Registro de compras 
-
+              <br />
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <div class="form-group">
@@ -83,7 +83,7 @@
 
                     </div>
 
-                    <div class="col-12 col-md-3">
+                    <div class="col-12 col-md-4">
                         <div class="form-group">
                             <label>Monto</label>
                             @Html.TextBoxFor(model => model.Compras.Monto, new { @class = "form-control", type = "number", step = "0.01" })
@@ -92,7 +92,7 @@
 
                     </div>
 
-                    <div class="col-12 col-md-3">
+                    <div class="col-12 col-md-4">
 
                         <div class="form-group">
                             <label>Fecha de compra</label>
@@ -101,10 +101,12 @@
                         </div>
 
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
-            
+               <div class="row">
+                    <div class="col-12 col-md-3">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+               </div>
             
             </section>
        
