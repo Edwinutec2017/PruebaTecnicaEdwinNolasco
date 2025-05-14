@@ -315,7 +315,13 @@ function ModalPrincipalOpen() {
 }
 
 function DescargarExcel() {
-    $("#formRegresar input[name=CodCliente]").attr("disabled", false);
+    $("#formCompras input[name=CodCliente]").attr("disabled", false);
     alert("Generando documento...")
-    $("#formRegresar").submit();
+    $("#formCompras").submit();
+}
+
+function DescargarEstadoCuentas() {
+    $("#formEstadoCuentas input[name=CodCliente]").attr("disabled", false);
+    alert("Generando estado de cuentas ...")
+    $("#formEstadoCuentas").submit();
 }

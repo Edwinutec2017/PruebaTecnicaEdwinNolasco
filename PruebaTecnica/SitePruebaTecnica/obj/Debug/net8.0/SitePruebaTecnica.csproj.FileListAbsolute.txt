@@ -51,3 +51,7 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\RBush.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\SixLabors.Fonts.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\System.IO.Packaging.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\PdfSharpCore.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\ICSharpCode.SharpZipLib.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\SixLabors.ImageSharp.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\de\PdfSharpCore.resources.dll

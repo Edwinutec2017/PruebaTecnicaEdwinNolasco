@@ -1,5 +1,6 @@
 ﻿using BussinesClass.Interfaces;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Drawing;
 using Dtos.Dtos;
 using Services.Interfaces;
 using System;
@@ -8,18 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace BussinesClass
 {
     public class TransaccionesBol : ITransaccionesClientes
     {
         private readonly ITransaccionesService _transaccionesService;
         private readonly ParametrosTasas _parametrosTasas;
+        private readonly IGenrerarPdf _genrerarPdf;
 
 
-        public TransaccionesBol(ITransaccionesService transaccionesService, ParametrosTasas parametrosTasas)
+        public TransaccionesBol(ITransaccionesService transaccionesService, ParametrosTasas parametrosTasas, IGenrerarPdf genrerarPdf)
         {
             _transaccionesService = transaccionesService;
             _parametrosTasas = parametrosTasas;
+            _genrerarPdf = genrerarPdf;
         }
 
         public async Task<string> AddCompras(TransaccionesDto transaccionesDto)
@@ -38,7 +42,7 @@ namespace BussinesClass
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.ToString());
             }
 
             return resp;
@@ -61,7 +65,7 @@ namespace BussinesClass
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.ToString());
             }
 
             return resp;
@@ -69,19 +73,19 @@ namespace BussinesClass
 
         public async Task<byte[]> GenerarExcelCompras(ClienteInput cliente)
         {
-
+           
             try
             {
                 ClienteTransacciones clienteTransacciones = new ClienteTransacciones();
                 clienteTransacciones.Clientes = await _transaccionesService.GetCliente(cliente);
                 clienteTransacciones.Transacciones = await _transaccionesService.GetTransacciones(cliente);
 
-
-               return GenerarExcel(clienteTransacciones.Transacciones, clienteTransacciones.Clientes.NombreTitular);
+                return (clienteTransacciones.Transacciones != null && clienteTransacciones.Transacciones.Count > 0) ? GenerarExcel(clienteTransacciones.Transacciones, clienteTransacciones.Clientes.NombreTitular) : [];
             }
             catch (Exception ex) 
             {
-               return null;
+                Console.WriteLine(ex.ToString());
+                return [];
             }
         }
 
@@ -103,7 +107,7 @@ namespace BussinesClass
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.ToString());
             }
             return clienteTransacciones;
         }
@@ -203,7 +207,26 @@ namespace BussinesClass
                 }
 
             }
+        }
 
+
+        public async Task<byte[]> GenerarEstadoDecuentas(ClienteInput cliente)
+        {
+            try
+            {
+                ClienteTransacciones clienteTransacciones = new ClienteTransacciones();
+                clienteTransacciones.Clientes = await _transaccionesService.GetCliente(cliente);
+                clienteTransacciones.Transacciones = await _transaccionesService.GetTransacciones(cliente);
+
+                clienteTransacciones = CalculodeSaldos(clienteTransacciones);
+
+                return (clienteTransacciones.Transacciones != null && clienteTransacciones.Transacciones.Count > 0) ? _genrerarPdf.GenerarEstadoDeCuenta(clienteTransacciones) : [];
+            }
+            catch (Exception ex) 
+            {
+                Console.Error.WriteLine(ex.ToString());
+                return [];
+            }
         }
     }
 }

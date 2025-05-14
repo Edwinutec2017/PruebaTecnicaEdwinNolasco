@@ -34,6 +34,7 @@ namespace SitePruebaTecnica.Controllers
             catch (Exception ex) 
             {
                 _logger.LogError($"Error en el inicio de consultas  {ex.Message}");
+                throw new Exception($"Error no se puede comunicar con el Back");
             }
 
             return View(model);
@@ -69,6 +70,7 @@ namespace SitePruebaTecnica.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Error en el inicio de consultas  {ex.Message}");
+                throw new Exception($"Error al consultar las transacciones");
             }
 
             return PartialView("_Transacciones", model);
@@ -156,7 +158,25 @@ namespace SitePruebaTecnica.Controllers
             catch (Exception ex) 
             {
                 _logger.LogError("Ocurrio un erro al generar el excel");
-                throw ex;
+                throw new Exception($"Ocurrio un error al generar el excel");
+            }
+
+        }
+
+
+        [HttpPost]
+        public async Task<FileResult> DescargarEstadoCuenta(ClienteInput clienteInput)
+        {
+            try
+            {
+                byte[] bytes = await _transaccionesClientes.GenerarEstadoDecuentas(clienteInput);
+                string nombre = "Estado de cuentas.pdf";
+                return File(bytes, System.Net.Mime.MediaTypeNames.Application.Pdf, nombre);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Ocurrio un erro al generar el excel");
+                throw new Exception($"Ocurrio un error al generar el excel");
             }
 
         }

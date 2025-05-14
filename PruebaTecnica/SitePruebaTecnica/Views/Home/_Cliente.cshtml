@@ -55,12 +55,12 @@
                 <div class="row">
                     <div class="col-12 col-md-3" style="text-align:left">
                         <button type="button" class="btn btn-primary" onclick="Compras(1);">
-                            Registro Compras
+                            Registrar Compras
                         </button>
                     </div>
                     <div class="col-12 col-md-3" style="text-align:left">
                         <button type="button" class="btn btn-secondary" onclick="Pagos(1);">
-                            Registro Pagos
+                            Registrar Pagos
                         </button>
                     </div>
                     <div class="col-12 col-md-3" style="text-align:left" >
@@ -70,20 +70,25 @@
                     </div>
 
                     <div class="col-12 col-md-3" style="text-align:left" >
-
-                        <form action="@Url.Action("DescargarCompras", "Home")" id="formRegresar" method="post">
+                        <form action="@Url.Action("DescargarCompras", "Home")" id="formCompras" method="post">
                             <input type="text" name="CodCliente" id="CodCliente" value="@Model.Clientes.CodCliente" style="display:none;" data-ini="S" />
 
                             <button type="button" class="btn btn-dark" onclick="DescargarExcel();">
-                               Desacargar Compras
+                               Descargar Compras
                             </button>
-
                         </form>
-
-
-                     
                     </div>
+                    <br />
+                    <br />
+                    <div class="col-12 col-md-3" style="text-align:left">
+                        <form action="@Url.Action("DescargarEstadoCuenta", "Home")" id="formEstadoCuentas" method="post">
+                            <input type="text" name="CodCliente" id="CodCliente" value="@Model.Clientes.CodCliente" style="display:none;" data-ini="S" />
 
+                            <button type="button" class="btn btn-success" onclick="DescargarEstadoCuentas();">
+                           Estado de cuenta
+                            </button>
+                        </form>
+                    </div>
                 </div>
 
              </section>

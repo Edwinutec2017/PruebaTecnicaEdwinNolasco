@@ -1,4 +1,5 @@
 using BussinesClass;
+using BussinesClass.GenerarDocumentos;
 using BussinesClass.Interfaces;
 using Dtos.Dtos;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,8 @@ builder.Services.AddSingleton<ParametrosTasas>(parametrosTasas);
 
 builder.Services.AddScoped<ITransaccionesClientes, TransaccionesBol>();
 builder.Services.AddScoped<ITransaccionesService, TransaccionesService>();
+builder.Services.AddScoped<IGenrerarPdf, GenrerarPdf>();
+
 
 var app = builder.Build();
 

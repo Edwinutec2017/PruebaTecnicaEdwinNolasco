@@ -15,5 +15,6 @@ namespace BussinesClass.Interfaces
         Task<List<TitularTargetaDto>> GetClientes();
         Task<List<TransaccionesDto>> Transacciones(ClienteInput cliente);
         Task<byte[]> GenerarExcelCompras(ClienteInput cliente);
+        Task<byte[]> GenerarEstadoDecuentas(ClienteInput cliente);
     }
 }
