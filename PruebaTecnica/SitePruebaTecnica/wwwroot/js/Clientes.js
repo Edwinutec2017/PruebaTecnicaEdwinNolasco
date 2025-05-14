@@ -93,6 +93,7 @@ function AddCompras(CodCliente)
                     limpiarInputs();
                     ClienteEncabezado(compras.CodCliente);
                     ModalPrincipalOpen();
+                    alert("Compra Registrado.");
                 } else
                 {
                     ModalPrincipalOpen();
@@ -139,6 +140,7 @@ function AddPagosCliente(CodCliente) {
                     limpiarInputs();
                     ClienteEncabezado(pagos.CodCliente);
                     ModalPrincipalOpen();
+                    alert("Pagos Registrado.");
                 } else {
                     ModalPrincipalOpen();
                     alert(response);
