@@ -13,8 +13,9 @@ namespace SitePruebaTecnica.Models
        public double InteresBonificable { get; set; }
        public double TotalPagar { get; set; }
        public double CuotaMinima { get; set; }
+        public double TotalPagarConInteres { get; set; }
 
-       public TransaccionesDto Transaccion { get; set; }
+        public TransaccionesDto Transaccion { get; set; }
      
 
     }

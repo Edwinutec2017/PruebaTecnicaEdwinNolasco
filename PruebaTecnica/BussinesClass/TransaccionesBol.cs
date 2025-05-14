@@ -118,6 +118,9 @@ namespace BussinesClass
                 {
                     double coutaMinima = (double)clienteTransacciones.Clientes.SaldoActual * (_parametrosTasas.PorcentageConfigurable / 100);
                     clienteTransacciones.CuotaMinima = coutaMinima;
+
+                    double totalConIntereses= (double)clienteTransacciones.Clientes.SaldoActual * (_parametrosTasas.InteresCofigurable / 100);
+                    clienteTransacciones.TotalPagarConInteres= (double)clienteTransacciones.Clientes.SaldoActual+totalConIntereses;
                 }
 
 

@@ -52,6 +52,7 @@ namespace SitePruebaTecnica.Controllers
                 model.InteresBonificable = transacciones.InteresBonificable;
                 model.TotalPagar=transacciones.TotalPagar;
                 model.CuotaMinima=transacciones.CuotaMinima;
+                model.TotalPagarConInteres = transacciones.TotalPagarConInteres;
 
 
 
@@ -133,6 +134,7 @@ namespace SitePruebaTecnica.Controllers
                 model.InteresBonificable = transacciones.InteresBonificable;
                 model.TotalPagar = transacciones.TotalPagar;
                 model.CuotaMinima = transacciones.CuotaMinima;
+                model.TotalPagarConInteres=transacciones.TotalPagarConInteres;
             }
             catch (Exception ex)
             {
