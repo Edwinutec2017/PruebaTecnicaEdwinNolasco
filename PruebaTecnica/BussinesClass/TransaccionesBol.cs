@@ -106,7 +106,7 @@ namespace BussinesClass
                 clienteTransacciones.Clientes = await _transaccionesService.GetCliente(cliente);
                 clienteTransacciones.Transacciones = await _transaccionesService.GetTransacciones(cliente);
 
-                clienteTransacciones = CalculodeSaldos(clienteTransacciones);
+                clienteTransacciones = CalculodeSaldos(clienteTransacciones,"view");
             }
             catch (Exception ex)
             {
@@ -120,7 +120,7 @@ namespace BussinesClass
             return await _transaccionesService.GetTransacciones(cliente);
         }
 
-        private ClienteTransacciones CalculodeSaldos(ClienteTransacciones clienteTransacciones)
+        private ClienteTransacciones CalculodeSaldos(ClienteTransacciones clienteTransacciones,string reporte)
         {
 
             var mesActuual = DateTime.Now.Month;
@@ -134,7 +134,9 @@ namespace BussinesClass
 
                 clienteTransacciones.TotalComprasMesActual = Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual)).Sum(e => e.Monto));
                 clienteTransacciones.TotalComprasMesAnterior = Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesAnterior)).Sum(e => e.Monto));
+                if(reporte!= "pdf")
                 clienteTransacciones.Transacciones = clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual)).Select(e => e).ToList();
+
                 clienteTransacciones.Clientes.SaldoDisponible = clienteTransacciones.Clientes.SaldoActual.Equals(0) ? clienteTransacciones.Clientes.LimiteCredito : clienteTransacciones.Clientes.SaldoDisponible;
 
                 clienteTransacciones.TotalPagar = (double)(clienteTransacciones.Clientes.SaldoActual != 0 ? clienteTransacciones.Clientes.SaldoActual : 0);
@@ -165,7 +167,7 @@ namespace BussinesClass
                 clienteTransacciones.Clientes = await _transaccionesService.GetCliente(cliente);
                 clienteTransacciones.Transacciones = await _transaccionesService.GetTransacciones(cliente);
 
-                clienteTransacciones = CalculodeSaldos(clienteTransacciones);
+                clienteTransacciones = CalculodeSaldos(clienteTransacciones,"pdf");
 
                 return (clienteTransacciones.Transacciones != null && clienteTransacciones.Transacciones.Count > 0) ? _genrerarPdf.GenerarEstadoDeCuenta(clienteTransacciones) : [];
             }
