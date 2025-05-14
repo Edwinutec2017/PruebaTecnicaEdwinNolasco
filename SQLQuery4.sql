@@ -85,3 +85,14 @@ BEGIN
 SELECT * FROM targetatitular;
 END;
 GO
+
+/******  ******/
+
+INSERT INTO [dbo].[targetatitular]
+           ([Nombre_titular]
+           ,[numero_targeta]
+           ,[limite_credito]
+           ,[saldo_actual]
+           ,[saldo_disponible])
+     VALUES('Edwin Alexander Nolasco','1023457896412345',1000,0,0); 
+       
