@@ -98,6 +98,7 @@ function AddCompras(CodCliente)
                 {
                     ModalPrincipalOpen();
                     alert(response);
+                    limpiarInputs();
                 }
             
             },
@@ -144,6 +145,7 @@ function AddPagosCliente(CodCliente) {
                 } else {
                     ModalPrincipalOpen();
                     alert(response);
+                    limpiarInputs();
 
                 }
             },
