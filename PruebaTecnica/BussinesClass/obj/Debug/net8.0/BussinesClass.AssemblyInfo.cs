@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BussinesClass")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4d0eb43021c6fff97c6afd56ac932b7293c3cf3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47092a16ce703d2a60365149c7bab474ef7438bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("BussinesClass")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BussinesClass")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

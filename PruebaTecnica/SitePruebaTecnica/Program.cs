@@ -29,6 +29,7 @@ builder.Services.AddSingleton<ParametrosTasas>(parametrosTasas);
 builder.Services.AddScoped<ITransaccionesClientes, TransaccionesBol>();
 builder.Services.AddScoped<ITransaccionesService, TransaccionesService>();
 builder.Services.AddScoped<IGenrerarPdf, GenrerarPdf>();
+builder.Services.AddScoped<IGenerarExcel, GenerarExcel>();
 
 
 var app = builder.Build();
