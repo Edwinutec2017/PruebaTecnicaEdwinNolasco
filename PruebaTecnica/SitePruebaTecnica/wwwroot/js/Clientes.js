@@ -93,7 +93,7 @@ function AddCompras(CodCliente)
                     limpiarInputs();
                     ClienteEncabezado(compras.CodCliente);
                     ModalPrincipalOpen();
-                    alert("Compra Registrado.");
+                    alert("Compra Registrada.");
                 } else
                 {
                     ModalPrincipalOpen();
@@ -215,6 +215,7 @@ function validarInputsDetallado(tipo) {
 function HistorialTransaccion(codCliente)
 {
     $('#clienteload').modal('show');
+    ModalPrincipalClose();
     const clienteInput = { CodCliente: codCliente, };
     $.ajax({
         url: urlObtenerTransaccionesCliente,
@@ -222,12 +223,15 @@ function HistorialTransaccion(codCliente)
         data: { clienteInput },
         success: function (response) {
             $("#transaccion").html(response);
+            ModalPrincipalOpen(); 
         },
         error: function (response) {
             console.log(response);
+            ModalPrincipalOpen(); 
         },
         complete: function (response) {
             $('#clienteload').modal('hide');
+            ModalPrincipalOpen(); 
         }
     });
 
