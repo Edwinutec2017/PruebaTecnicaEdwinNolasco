@@ -4,6 +4,7 @@ using Dtos.Dtos;
 using Microsoft.Extensions.DependencyInjection;
 using Services;
 using Services.Interfaces;
+using SitePruebaTecnica.Models.MapperProfile;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ ParametrosTasas parametrosTasas = new()
     PorcentageConfigurable= Convert.ToDouble(builder.Configuration.GetSection("Tasas_Interes").GetSection("Porcentage_configurable").Value),
 };
 
+builder.Services.AddAutoMapper(typeof(ProfileMapperSite).Assembly);
 builder.Services.AddSingleton<ParametrosTasas>(parametrosTasas);
 
 builder.Services.AddScoped<ITransaccionesClientes, TransaccionesBol>();

@@ -42,3 +42,4 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\SitePruebaTecnica.pdb
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\SitePruebaTecnica.genruntimeconfig.cache
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\ref\SitePruebaTecnica.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\AutoMapper.dll

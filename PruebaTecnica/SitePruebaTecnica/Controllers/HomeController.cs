@@ -1,9 +1,12 @@
+using AutoMapper;
 using BussinesClass.Interfaces;
 using Dtos.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
 using SitePruebaTecnica.Models;
+using System.Data;
 using System.Diagnostics;
+using System.Reflection.PortableExecutable;
 
 namespace SitePruebaTecnica.Controllers
 {
@@ -11,11 +14,13 @@ namespace SitePruebaTecnica.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ITransaccionesClientes _transaccionesClientes;
+        private readonly IMapper _mapper;
 
-        public HomeController(ILogger<HomeController> logger, ITransaccionesClientes transaccionesClientes)
+        public HomeController(ILogger<HomeController> logger, ITransaccionesClientes transaccionesClientes,IMapper mapper)
         {
             _logger = logger;
             _transaccionesClientes = transaccionesClientes;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -41,21 +46,8 @@ namespace SitePruebaTecnica.Controllers
             ClienteTransaccionModel model = new();
             try
             {
-                var transacciones = await _transaccionesClientes.GetTransacciones(clienteInput);
-
-                model.Clientes=transacciones.Clientes;
-                model.Transacciones=transacciones.Transacciones;
-                model.TotalComprasMesActual=transacciones.TotalComprasMesActual;
-                model.TotalComprasMesAnterior=transacciones.TotalComprasMesAnterior;
-                model.Interes=transacciones.Interes;
-                model.Porcentaje=transacciones.Porcentaje;
-                model.InteresBonificable = transacciones.InteresBonificable;
-                model.TotalPagar=transacciones.TotalPagar;
-                model.CuotaMinima=transacciones.CuotaMinima;
-                model.TotalPagarConInteres = transacciones.TotalPagarConInteres;
-
-
-
+              
+                model = _mapper.Map<ClienteTransacciones, ClienteTransaccionModel>(await _transaccionesClientes.GetTransacciones(clienteInput));
             }
             catch (Exception ex)
             {
@@ -125,16 +117,7 @@ namespace SitePruebaTecnica.Controllers
             ClienteTransaccionModel model = new();
             try
             {
-                var transacciones = await _transaccionesClientes.GetTransacciones(clienteInput);
-                model.Clientes = transacciones.Clientes;
-                model.TotalComprasMesActual = transacciones.TotalComprasMesActual;
-                model.TotalComprasMesAnterior = transacciones.TotalComprasMesAnterior;
-                model.Interes = transacciones.Interes;
-                model.Porcentaje = transacciones.Porcentaje;
-                model.InteresBonificable = transacciones.InteresBonificable;
-                model.TotalPagar = transacciones.TotalPagar;
-                model.CuotaMinima = transacciones.CuotaMinima;
-                model.TotalPagarConInteres=transacciones.TotalPagarConInteres;
+                model = _mapper.Map<ClienteTransacciones, ClienteTransaccionModel>(await _transaccionesClientes.GetTransacciones(clienteInput));
             }
             catch (Exception ex)
             {
@@ -150,8 +133,7 @@ namespace SitePruebaTecnica.Controllers
             ClienteTransaccionModel model = new();
             try
             {
-                var transacciones = await _transaccionesClientes.GetTransacciones(clienteInput);
-                model.Transacciones = transacciones.Transacciones;
+                model = _mapper.Map<ClienteTransacciones, ClienteTransaccionModel>(await _transaccionesClientes.GetTransacciones(clienteInput));
             
             }
             catch (Exception ex)
