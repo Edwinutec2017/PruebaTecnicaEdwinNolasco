@@ -92,16 +92,16 @@ function AddCompras(CodCliente)
                 if (response == "registrada") {
                     limpiarInputs();
                     ClienteEncabezado(compras.CodCliente);
-                    $('#clienteTransaccion').modal('show');
+                    ModalPrincipalOpen();
                 } else
                 {
-                    $('#clienteTransaccion').modal('show');
+                    ModalPrincipalOpen();
                     alert(response);
                 }
             
             },
             error: function (response) {
-                $('#clienteTransaccion').modal('show');
+                ModalPrincipalOpen();
                 alert(response);
             },
             complete: function (response) {
@@ -117,10 +117,6 @@ function AddCompras(CodCliente)
 
 
 function AddPagosCliente(CodCliente) {
-
-
-
-
 
     var monto = document.getElementById("Transaccion_Monto");
     var fecha = document.getElementById("Transaccion_FechaTransaccion");
@@ -144,14 +140,14 @@ function AddPagosCliente(CodCliente) {
                     ClienteEncabezado(pagos.CodCliente);
                     ModalPrincipalOpen();
                 } else {
-                    $('#clienteTransaccion').modal('show');
+                    ModalPrincipalOpen();
                     alert(response);
 
                 }
             },
             error: function (response) {
                 console.log(response);
-                $('#clienteTransaccion').modal('show');
+                ModalPrincipalOpen();
             },
             complete: function (response) {
                 $('#clienteload').modal('hide');
