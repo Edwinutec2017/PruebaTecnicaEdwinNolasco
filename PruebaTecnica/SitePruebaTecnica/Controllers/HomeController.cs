@@ -144,6 +144,23 @@ namespace SitePruebaTecnica.Controllers
             return PartialView("_ClienteDetalle", model);
         }
 
+        [HttpPost]
+        public async Task<FileResult> DescargarCompras(ClienteInput clienteInput) 
+        {
+            try
+            {
+                byte[] bytes= await _transaccionesClientes.GenerarExcelCompras(clienteInput);
+                string nombre = "Registro de compras.xlsx";
+                return File(bytes, System.Net.Mime.MediaTypeNames.Application.Octet, nombre);
+            }
+            catch (Exception ex) 
+            {
+                _logger.LogError("Ocurrio un erro al generar el excel");
+                throw ex;
+            }
+
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

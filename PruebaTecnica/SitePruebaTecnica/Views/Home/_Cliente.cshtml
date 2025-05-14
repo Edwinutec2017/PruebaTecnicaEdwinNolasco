@@ -53,21 +53,37 @@
                 Acciones
                 <br />
                 <div class="row">
-                    <div class="col-12 col-md-4" style="text-align:left">
+                    <div class="col-12 col-md-3" style="text-align:left">
                         <button type="button" class="btn btn-primary" onclick="Compras(1);">
                             Registro Compras
                         </button>
                     </div>
-                    <div class="col-12 col-md-4" style="text-align:left">
+                    <div class="col-12 col-md-3" style="text-align:left">
                         <button type="button" class="btn btn-secondary" onclick="Pagos(1);">
                             Registro Pagos
                         </button>
                     </div>
-                    <div class="col-12 col-md-4" style="text-align:left" onclick="HistorialTransaccion(@Model.Clientes.CodCliente);">
-                        <button type="button" class="btn btn-warning">
+                    <div class="col-12 col-md-3" style="text-align:left" >
+                        <button type="button" class="btn btn-warning" onclick="HistorialTransaccion(@Model.Clientes.CodCliente);">
                             Historial transacciones
                         </button>
                     </div>
+
+                    <div class="col-12 col-md-3" style="text-align:left" >
+
+                        <form action="@Url.Action("DescargarCompras", "Home")" id="formRegresar" method="post">
+                            <input type="text" name="CodCliente" id="CodCliente" value="@Model.Clientes.CodCliente" style="display:none;" data-ini="S" />
+
+                            <button type="button" class="btn btn-dark" onclick="DescargarExcel();">
+                               Desacargar Compras
+                            </button>
+
+                        </form>
+
+
+                     
+                    </div>
+
                 </div>
 
              </section>

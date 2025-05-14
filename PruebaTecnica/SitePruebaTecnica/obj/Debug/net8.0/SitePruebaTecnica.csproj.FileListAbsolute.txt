@@ -43,3 +43,11 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\SitePruebaTecnica.genruntimeconfig.cache
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\ref\SitePruebaTecnica.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\AutoMapper.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\ClosedXML.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\ClosedXML.Parser.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\DocumentFormat.OpenXml.Framework.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\ExcelNumberFormat.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\RBush.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\SixLabors.Fonts.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\System.IO.Packaging.dll

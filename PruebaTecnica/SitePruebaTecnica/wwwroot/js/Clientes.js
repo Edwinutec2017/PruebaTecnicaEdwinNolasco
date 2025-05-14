@@ -313,3 +313,9 @@ function ModalPrincipalOpen() {
     $('body').addClass('modal-open cursor-blocked');
     $('#clienteTransaccion').modal('show');
 }
+
+function DescargarExcel() {
+    $("#formRegresar input[name=CodCliente]").attr("disabled", false);
+    alert("Generando documento...")
+    $("#formRegresar").submit();
+}
