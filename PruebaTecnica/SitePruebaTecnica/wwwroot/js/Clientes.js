@@ -37,6 +37,11 @@ function Compras(accion)
         $("#frmclientes").prop("hidden", false);
         $("#description").prop("hidden", false);
         acction = "c";
+        var myLabel = document.getElementById('trasacionLabel');
+        myLabel.textContent = "Registro de Compras";
+        const fecha = document.getElementById('fecha');
+        fecha.textContent = "Fecha de Compras";
+
     } else
     {
         $("#frmclientes").prop("hidden", true);
@@ -49,6 +54,10 @@ function Pagos(accion) {
         $("#frmclientes").prop("hidden", false);
         $("#description").prop("hidden", true);
         acction = "p";
+        var myLabel = document.getElementById('trasacionLabel');
+        myLabel.textContent = "Registro de pagos";
+        var fecha = document.getElementById('fecha');
+        fecha.textContent = "Fecha de pago";
     } else
     {
         $("#frmclientes").prop("hidden", true);

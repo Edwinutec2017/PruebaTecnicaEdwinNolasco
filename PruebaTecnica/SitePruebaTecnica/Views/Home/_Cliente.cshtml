@@ -80,7 +80,7 @@
         <div class="col-12 col-md-12" style="  text-align:left">
 
             <section class="bordered-section">
-              Registro de compras 
+             <label id="trasacionLabel"></label>
               <br />
                 <div class="row">
                     <div class="col-12 col-md-4" id="description">
@@ -112,7 +112,7 @@
                     <div class="col-12 col-md-4">
 
                         <div class="form-group">
-                            <label>Fecha de compra</label>
+                            <label id="fecha"></label>
                             @Html.TextBoxFor(model => model.Transaccion.FechaTransaccion, new { @class = "form-control", type = "date", required = true })
                             @Html.ValidationMessageFor(model => model.Transaccion.FechaTransaccion)
                         </div>
