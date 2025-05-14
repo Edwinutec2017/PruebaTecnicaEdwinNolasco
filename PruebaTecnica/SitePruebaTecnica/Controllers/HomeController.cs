@@ -102,20 +102,19 @@ namespace SitePruebaTecnica.Controllers
 
 
         [HttpPost]
-        public async Task<bool> Pagos(TransaccionesDto pagos)
+        public async Task<string> Pagos(TransaccionesDto pagos)
         {
-            // TransaccionesModel model = new();
+            var respuesta = "";
             try
             {
-                //model.Transaccion = await _transaccionesClientes.Transacciones(clienteInput);
-
+               respuesta= await _transaccionesClientes.AddPagos(pagos);
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error en el inicio de consultas  {ex.Message}");
             }
 
-            return true;
+            return respuesta;
         }
 
 

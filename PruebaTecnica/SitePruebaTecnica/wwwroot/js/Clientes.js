@@ -72,9 +72,10 @@ function AddCompras(CodCliente)
     var desciption = document.getElementById("Transaccion_Description");
     var monto = document.getElementById("Transaccion_Monto");
     var fecha = document.getElementById("Transaccion_FechaTransaccion");
-    $('#clienteload').modal('show');
     if (validarInputsDetallado("c"))
     {
+        ModalPrincipalClose();
+        $('#clienteload').modal('show');
 
         const compras = {
             CodCliente: CodCliente,
@@ -91,13 +92,16 @@ function AddCompras(CodCliente)
                 if (response == "registrada") {
                     limpiarInputs();
                     ClienteEncabezado(compras.CodCliente);
+                    $('#clienteTransaccion').modal('show');
                 } else
                 {
+                    $('#clienteTransaccion').modal('show');
                     alert(response);
                 }
             
             },
             error: function (response) {
+                $('#clienteTransaccion').modal('show');
                 alert(response);
             },
             complete: function (response) {
@@ -114,10 +118,15 @@ function AddCompras(CodCliente)
 
 function AddPagosCliente(CodCliente) {
 
+
+
+
+
     var monto = document.getElementById("Transaccion_Monto");
     var fecha = document.getElementById("Transaccion_FechaTransaccion");
-    $('#clienteload').modal('show');
     if (validarInputsDetallado("p")) {
+        ModalPrincipalClose();
+        $('#clienteload').modal('show');
 
         const pagos = {
             CodCliente: CodCliente,
@@ -125,18 +134,24 @@ function AddPagosCliente(CodCliente) {
             FechaTransaccion: fecha.value
         };
 
-
         $.ajax({
             url: urlPagosCliente,
             type: 'POST',
             data: { pagos },
             success: function (response) {
-                limpiarInputs();
-                //$("#container-partial").html(response);
-                //$('#clienteTransaccion').modal('show');
+                if (response == "registrada") {
+                    limpiarInputs();
+                    ClienteEncabezado(pagos.CodCliente);
+                    ModalPrincipalOpen();
+                } else {
+                    $('#clienteTransaccion').modal('show');
+                    alert(response);
+
+                }
             },
             error: function (response) {
                 console.log(response);
+                $('#clienteTransaccion').modal('show');
             },
             complete: function (response) {
                 $('#clienteload').modal('hide');
@@ -243,7 +258,7 @@ function ClienteEncabezado(codCliente) {
                 console.log(response);
             },
             complete: function (response) {
-                $('#clienteload').modal('hide');
+               
             }
         });
 
@@ -271,4 +286,17 @@ function ClienteDetalle(codCliente) {
 
     } 
 
+}
+
+
+function ModalPrincipalClose()
+{
+    $('body').removeClass('modal-open cursor-blocked');
+    $('#clienteTransaccion').modal('hide');
+}
+
+
+function ModalPrincipalOpen() {
+    $('body').addClass('modal-open cursor-blocked');
+    $('#clienteTransaccion').modal('show');
 }

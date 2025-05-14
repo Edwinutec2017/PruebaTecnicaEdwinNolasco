@@ -14,5 +14,6 @@ namespace Services.Interfaces
         Task<TitularTargetaDto> GetCliente(ClienteInput clienteInput);
 
         Task<string> AddComprasCliente(TransaccionesDto compras);
+        Task<string> AddPagosCliente(TransaccionesDto compras);
     }
 }

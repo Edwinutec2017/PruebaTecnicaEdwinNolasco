@@ -43,9 +43,27 @@ namespace BussinesClass
             return resp;
         }
 
-        public Task<bool> AddPagos(TransaccionesDto transaccionesDto)
+        public async Task<string> AddPagos(TransaccionesDto transaccionesDto)
         {
-            throw new NotImplementedException();
+            var resp = "";
+
+            try
+            {
+                if (transaccionesDto != null)
+                {
+                    transaccionesDto.Tipo = "Pago";
+                    transaccionesDto.Description = "Abonos";
+                    resp = await _transaccionesService.AddPagosCliente(transaccionesDto);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return resp;
         }
 
         public async Task<List<TitularTargetaDto>> GetClientes()

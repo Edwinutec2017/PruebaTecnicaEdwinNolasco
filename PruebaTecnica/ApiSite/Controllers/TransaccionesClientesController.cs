@@ -84,11 +84,11 @@ namespace ApiSite.Controllers
         }
 
         [HttpPost("TransaccionAddPagos")]
-        public async Task<GenericResponse<bool>> Pagos(Transacciones pagos)
+        public async Task<GenericResponse<string>> Pagos([FromBody] Transacciones pagos)
         {
             try
             {
-                return new GenericResponse<bool>()
+                return new GenericResponse<string>()
                 {
                     Item = await _transaccionesAplication.AddPagos(pagos),
                     Status = new ResponseStatus()
@@ -101,9 +101,9 @@ namespace ApiSite.Controllers
             catch (Exception ex)
             {
                 _logger.LogWarning($"Ocurrio un error al registrar el pago-{ex.Message}");
-                return new GenericResponse<bool>()
+                return new GenericResponse<string>()
                 {
-                    Item = false,
+                    Item = "",
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.InternalServerError,

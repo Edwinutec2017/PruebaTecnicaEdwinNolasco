@@ -13,7 +13,7 @@ namespace Domain.Interfaces
 
         Task<string> AddCompras(Transacciones compras);
 
-        Task<bool> AddPagos(Transacciones pagos);
+        Task<string> AddPagos(Transacciones pagos);
 
         Task<List<Transacciones>> GetTransacciones(int codCliente);
 

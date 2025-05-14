@@ -20,6 +20,27 @@
 </script>
 
 
+<style>
+    /* Estilo cuando la modal está activa */
+    body.modal-open {
+        cursor: not-allowed;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    /* Permitir cursor normal dentro de la modal */
+    .modal-content {
+        cursor: auto;
+        pointer-events: auto;
+    }
+
+    /* Bloquear completamente el fondo */
+    .modal-backdrop {
+        cursor: not-allowed;
+    }
+</style>
+
+
 <!-- CSS de Bootstrap -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 

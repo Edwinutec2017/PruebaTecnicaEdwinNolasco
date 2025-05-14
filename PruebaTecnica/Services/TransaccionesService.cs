@@ -51,6 +51,35 @@ namespace Services
             return compra;
         }
 
+        public async Task<string> AddPagosCliente(TransaccionesDto compras)
+        {
+            string compra = "";
+
+            string endpoint = $"{_endpointsDto.UrlBackenApi}TransaccionesClientes/TransaccionAddPagos";
+            string jsonData = JsonConvert.SerializeObject(compras);
+            using (HttpClient httpClient = new HttpClient())
+            {
+                StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await httpClient.PostAsync(endpoint, content);
+                if (!response.IsSuccessStatusCode)
+                    throw new HttpRequestException($"Ocurrió un error al concultar los clientes  {response.StatusCode}");
+
+                string json = await response.Content.ReadAsStringAsync();
+
+                GenericResponse<string> result = JsonConvert.DeserializeObject<GenericResponse<string>>(json);
+
+                if (result.Status == null)
+                    throw new HttpRequestException($"Ocurrió un error al consultar metadata");
+
+                if (result.Status.HttpCode != HttpStatusCode.OK)
+                    throw new HttpRequestException($"Ocurrió un error al consultar metadata: {result.Status.Message}");
+
+                compra = result.Item;
+            }
+
+            return compra;
+        }
+
         public async Task<TitularTargetaDto> GetCliente(ClienteInput clienteInput)
         {
            TitularTargetaDto clientes;
