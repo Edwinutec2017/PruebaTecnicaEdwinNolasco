@@ -48,7 +48,7 @@ namespace BussinesClass.GenerarDocumentos
             #region HEADER
             // headers
             gfx.DrawString($"Titular: {clienteTransacciones.Clientes.NombreTitular.ToLower()}", headerFont, XBrushes.Black, leftMargin, yPos);
-            gfx.DrawString($"# targeta: {clienteTransacciones.Clientes.NumeroTargeta}", headerFont, XBrushes.Black, leftMargin + columnWidth, yPos);
+            gfx.DrawString($"# tarjeta: {clienteTransacciones.Clientes.NumeroTargeta}", headerFont, XBrushes.Black, leftMargin + columnWidth, yPos);
             yPos += 20;
 
             columnWidth = width / 2;
@@ -63,12 +63,12 @@ namespace BussinesClass.GenerarDocumentos
 
             columnWidth = width / 2;
             gfx.DrawString($"Intéres % {clienteTransacciones.Interes}", headerFont, XBrushes.Black, leftMargin, yPos);
-            gfx.DrawString($"Porcentaje $ {clienteTransacciones.Porcentaje}", headerFont, XBrushes.Black, leftMargin + columnWidth, yPos);
+            gfx.DrawString($"Porcentaje % {clienteTransacciones.Porcentaje}", headerFont, XBrushes.Black, leftMargin + columnWidth, yPos);
             yPos += 20;
 
             columnWidth = width / 2;
-            gfx.DrawString($"Compras mes actual {clienteTransacciones.TotalComprasMesActual}", headerFont, XBrushes.Black, leftMargin, yPos);
-            gfx.DrawString($"Compras mes anterior {clienteTransacciones.TotalComprasMesAnterior}", headerFont, XBrushes.Black, leftMargin + columnWidth, yPos);
+            gfx.DrawString($"Compras mes actual ${clienteTransacciones.TotalComprasMesActual}", headerFont, XBrushes.Black, leftMargin, yPos);
+            gfx.DrawString($"Compras mes anterior $ {clienteTransacciones.TotalComprasMesAnterior}", headerFont, XBrushes.Black, leftMargin + columnWidth, yPos);
 
             yPos += 20;
 
