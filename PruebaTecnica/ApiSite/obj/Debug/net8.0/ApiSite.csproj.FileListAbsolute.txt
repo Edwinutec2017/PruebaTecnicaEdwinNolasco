@@ -76,12 +76,6 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\scopedc
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\staticwebassets.build.json
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\staticwebassets.development.json
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\staticwebassets\msbuild.ApiSite.Microsoft.AspNetCore.StaticWebAssets.props
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\staticwebassets\msbuild.ApiSite.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\staticwebassets\msbuild.build.ApiSite.props
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ApiSite.props
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ApiSite.props
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\staticwebassets.pack.json
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\ApiSite.csproj.Up2Date
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\ApiSite.dll
@@ -89,3 +83,4 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\refint\
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\ApiSite.pdb
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\ApiSite.genruntimeconfig.cache
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\ref\ApiSite.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\ApiSite\obj\Debug\net8.0\staticwebassets.build.json.cache
