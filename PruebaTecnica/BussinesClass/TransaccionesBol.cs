@@ -38,6 +38,7 @@ namespace BussinesClass
                 if (transaccionesDto != null)
                 {
                     transaccionesDto.Tipo = "Compra";
+                    transaccionesDto.Monto = Math.Round(transaccionesDto.Monto, 3);
                     resp = await _transaccionesService.AddComprasCliente(transaccionesDto);
 
                 }
@@ -61,6 +62,7 @@ namespace BussinesClass
                 {
                     transaccionesDto.Tipo = "Pago";
                     transaccionesDto.Description = "Abonos";
+                    transaccionesDto.Monto=Math.Round(transaccionesDto.Monto,3);
                     resp = await _transaccionesService.AddPagosCliente(transaccionesDto);
 
                 }
@@ -132,22 +134,22 @@ namespace BussinesClass
                 clienteTransacciones.Porcentaje = _parametrosTasas.PorcentageConfigurable;
                 clienteTransacciones.Interes = _parametrosTasas.InteresCofigurable;
 
-                clienteTransacciones.TotalComprasMesActual = Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual)).Sum(e => e.Monto));
-                clienteTransacciones.TotalComprasMesAnterior = Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesAnterior)).Sum(e => e.Monto));
+                clienteTransacciones.TotalComprasMesActual = Math.Round(Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual)).Sum(e => e.Monto)),3);
+                clienteTransacciones.TotalComprasMesAnterior = Math.Round(Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesAnterior)).Sum(e => e.Monto)),3);
                 if(reporte!= "pdf")
                 clienteTransacciones.Transacciones = clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual)).Select(e => e).ToList();
 
-                clienteTransacciones.Clientes.SaldoDisponible = clienteTransacciones.Clientes.SaldoActual.Equals(0) ? clienteTransacciones.Clientes.LimiteCredito : clienteTransacciones.Clientes.SaldoDisponible;
+                clienteTransacciones.Clientes.SaldoDisponible = clienteTransacciones.Clientes.SaldoActual.Equals(0) ? Math.Round(clienteTransacciones.Clientes.LimiteCredito,3) : Math.Round(clienteTransacciones.Clientes.SaldoDisponible,3);
 
-                clienteTransacciones.TotalPagar = (double)(clienteTransacciones.Clientes.SaldoActual != 0 ? clienteTransacciones.Clientes.SaldoActual : 0);
+                clienteTransacciones.TotalPagar = (double)(clienteTransacciones.Clientes.SaldoActual != 0 ? Math.Round(clienteTransacciones.Clientes.SaldoActual,3) : 0);
 
                 if (clienteTransacciones.Clientes.SaldoActual > 0)
                 {
-                    double coutaMinima = (double)clienteTransacciones.Clientes.SaldoActual * (_parametrosTasas.PorcentageConfigurable / 100);
+                    double coutaMinima = Math.Round((double)clienteTransacciones.Clientes.SaldoActual * (_parametrosTasas.PorcentageConfigurable / 100), 3);
                     clienteTransacciones.CuotaMinima = coutaMinima;
 
-                    double totalConIntereses = (double)clienteTransacciones.Clientes.SaldoActual * (_parametrosTasas.InteresCofigurable / 100);
-                    clienteTransacciones.TotalPagarConInteres = (double)clienteTransacciones.Clientes.SaldoActual + totalConIntereses;
+                    double totalConIntereses = Math.Round((double)clienteTransacciones.Clientes.SaldoActual * (_parametrosTasas.InteresCofigurable / 100),3);
+                    clienteTransacciones.TotalPagarConInteres = Math.Round((double)clienteTransacciones.Clientes.SaldoActual + totalConIntereses,3);
                 }
 
 
