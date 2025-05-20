@@ -29,12 +29,6 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\staticwebassets.build.json
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\staticwebassets.development.json
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.SitePruebaTecnica.Microsoft.AspNetCore.StaticWebAssets.props
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.SitePruebaTecnica.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.build.SitePruebaTecnica.props
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SitePruebaTecnica.props
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SitePruebaTecnica.props
-E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\staticwebassets.pack.json
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\SitePrue.52E98CFD.Up2Date
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\SitePruebaTecnica.dll
@@ -55,3 +49,6 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\ICSharpCode.SharpZipLib.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\SixLabors.ImageSharp.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\de\PdfSharpCore.resources.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\FluentValidation.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\SitePruebaTecnica\obj\Debug\net8.0\staticwebassets.build.json.cache

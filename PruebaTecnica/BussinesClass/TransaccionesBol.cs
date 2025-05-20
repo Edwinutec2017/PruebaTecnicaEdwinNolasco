@@ -134,28 +134,28 @@ namespace BussinesClass
                 clienteTransacciones.Porcentaje = _parametrosTasas.PorcentageConfigurable;
                 clienteTransacciones.Interes = _parametrosTasas.InteresCofigurable;
 
-                clienteTransacciones.TotalComprasMesActual = Math.Round(Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual)).Sum(e => e.Monto)),3);
-                clienteTransacciones.TotalComprasMesAnterior = Math.Round(Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesAnterior)).Sum(e => e.Monto)),3);
+                clienteTransacciones.TotalComprasMesActual = Math.Round(Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual)).Sum(e => e.Monto)),2);
+                clienteTransacciones.TotalComprasMesAnterior = Math.Round(Convert.ToDouble(clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesAnterior)).Sum(e => e.Monto)),2);
                 if(reporte!= "pdf")
                 clienteTransacciones.Transacciones = clienteTransacciones.Transacciones.Where(e => e.Tipo.Equals("Compra") && e.FechaTransaccion.Month.Equals(mesActuual)).Select(e => e).ToList();
 
                 clienteTransacciones.Clientes.SaldoDisponible = clienteTransacciones.Clientes.SaldoActual.Equals(0) ? Math.Round(clienteTransacciones.Clientes.LimiteCredito,3) : Math.Round(clienteTransacciones.Clientes.SaldoDisponible,3);
 
-                clienteTransacciones.TotalPagar = (double)(clienteTransacciones.Clientes.SaldoActual != 0 ? Math.Round(clienteTransacciones.Clientes.SaldoActual,3) : 0);
+                clienteTransacciones.TotalPagar = (double)(clienteTransacciones.Clientes.SaldoActual != 0 ? Math.Round(clienteTransacciones.Clientes.SaldoActual,2) : 0);
 
                 if (clienteTransacciones.Clientes.SaldoActual > 0)
                 {
-                    double coutaMinima = Math.Round((double)clienteTransacciones.Clientes.SaldoActual * (_parametrosTasas.PorcentageConfigurable / 100), 3);
+                    double coutaMinima = Math.Round((double)clienteTransacciones.Clientes.SaldoActual * (_parametrosTasas.PorcentageConfigurable / 100), 2);
                     clienteTransacciones.CuotaMinima = coutaMinima;
 
-                    double totalConIntereses = Math.Round((double)clienteTransacciones.Clientes.SaldoActual * (_parametrosTasas.InteresCofigurable / 100),3);
-                    clienteTransacciones.TotalPagarConInteres = Math.Round((double)clienteTransacciones.Clientes.SaldoActual + totalConIntereses,3);
+                    double totalConIntereses = Math.Round((double)clienteTransacciones.Clientes.SaldoActual * (_parametrosTasas.InteresCofigurable / 100),2);
+                    clienteTransacciones.TotalPagarConInteres = Math.Round((double)clienteTransacciones.Clientes.SaldoActual + totalConIntereses,2);
                 }
 
 
                 if (clienteTransacciones.Clientes.SaldoActual > 0)
                 {
-                    clienteTransacciones.InteresBonificable = (double)clienteTransacciones.Clientes.SaldoActual * (clienteTransacciones.Interes / 100);
+                    clienteTransacciones.InteresBonificable = Math.Round((double)clienteTransacciones.Clientes.SaldoActual * (clienteTransacciones.Interes / 100),2);
                 }
             }
             return clienteTransacciones;
@@ -163,6 +163,7 @@ namespace BussinesClass
 
         public async Task<byte[]> GenerarEstadoDecuentas(ClienteInput cliente)
         {
+         
             try
             {
                 ClienteTransacciones clienteTransacciones = new ClienteTransacciones();
@@ -171,11 +172,16 @@ namespace BussinesClass
 
                 clienteTransacciones = CalculodeSaldos(clienteTransacciones,"pdf");
 
-                return (clienteTransacciones.Transacciones != null && clienteTransacciones.Transacciones.Count > 0) ? _genrerarPdf.GenerarEstadoDeCuenta(clienteTransacciones) : [];
+                if (clienteTransacciones.Transacciones != null && clienteTransacciones.Transacciones.Count > 0)
+                    return _genrerarPdf.GenerarEstadoDeCuenta(clienteTransacciones);
+                else
+                    return [];
+
+            
             }
             catch (Exception ex) 
             {
-                Console.Error.WriteLine(ex.ToString());
+           
                 return [];
             }
         }

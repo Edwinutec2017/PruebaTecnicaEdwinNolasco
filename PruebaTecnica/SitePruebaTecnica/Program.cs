@@ -2,6 +2,8 @@ using BussinesClass;
 using BussinesClass.GenerarDocumentos;
 using BussinesClass.Interfaces;
 using Dtos.Dtos;
+using Dtos.Validador;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Services;
 using Services.Interfaces;
@@ -31,6 +33,9 @@ builder.Services.AddScoped<ITransaccionesService, TransaccionesService>();
 builder.Services.AddScoped<IGenrerarPdf, GenrerarPdf>();
 builder.Services.AddScoped<IGenerarExcel, GenerarExcel>();
 
+/*Flue validation*/
+builder.Services.AddScoped<IValidator<ClienteInput>, ClienteInputValidador>();
+builder.Services.AddScoped<IValidator<TransaccionesDto>, TransaccionesDtoValidadorCompras>();
 
 var app = builder.Build();
 

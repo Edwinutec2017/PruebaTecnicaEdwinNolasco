@@ -1,6 +1,8 @@
 using Aplication;
 using Domain.Dto;
+using Domain.FlueValidation;
 using Domain.Interfaces;
+using FluentValidation;
 using Infraestructur;
 using Infraestructur.Interface;
 using Microsoft.Data.SqlClient;
@@ -27,8 +29,13 @@ builder.Logging.AddLog4Net(new Log4NetProviderOptions
 builder.Services.AddScoped<ITransaccionesClientes, TransaccionesClientes>();
 builder.Services.AddScoped<ITransaccionesAplication, TransaccionesAplication>();
 builder.Services.AddScoped(typeof(IUnitOfWork<>),typeof(UnitOfWork<>));
+/*Flue validation*/
+builder.Services.AddScoped<IValidator<ClienteInput>, ClienteValidador>();
+builder.Services.AddScoped<IValidator<Transacciones>, TransaccionesValidador>();
 
 builder.Services.AddControllers();
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -69,7 +69,8 @@
                         </button>
                     </div>
 
-                    <div class="col-12 col-md-3" style="text-align:left" >
+
+                    <div class="col-12 col-md-3" style="text-align:left" id="DivExcel"  >
                         <form action="@Url.Action("DescargarCompras", "Home")" id="formCompras" method="post">
                             <input type="text" name="CodCliente" id="CodCliente" value="@Model.Clientes.CodCliente" style="display:none;" data-ini="S" />
 
@@ -80,7 +81,7 @@
                     </div>
                     <br />
                     <br />
-                    <div class="col-12 col-md-3" style="text-align:left">
+                    <div class="col-12 col-md-3" style="text-align:left" id="DivPdf" >
                         <form action="@Url.Action("DescargarEstadoCuenta", "Home")" id="formEstadoCuentas" method="post">
                             <input type="text" name="CodCliente" id="CodCliente" value="@Model.Clientes.CodCliente" style="display:none;" data-ini="S" />
 

@@ -1,5 +1,6 @@
 ﻿using Domain.Dto;
 using Domain.Interfaces;
+using FluentValidation;
 using Infraestructur;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -12,11 +13,17 @@ namespace ApiSite.Controllers
     {
         private readonly ITransaccionesAplication _transaccionesAplication;
         private readonly ILogger<TransaccionesClientesController> _logger;
+        private readonly IValidator<ClienteInput> _validatorCliente;
+        private readonly IValidator<Transacciones> _validadorTransacciones;
 
-        public TransaccionesClientesController(ITransaccionesAplication transaccionesAplication, ILogger<TransaccionesClientesController> logger)
+        public TransaccionesClientesController(ITransaccionesAplication transaccionesAplication, ILogger<TransaccionesClientesController> logger, 
+            IValidator<ClienteInput> validatorCliente, IValidator<Transacciones> validadorTransacciones)
         {
-        _transaccionesAplication = transaccionesAplication;
+            _transaccionesAplication = transaccionesAplication;
             _logger = logger;
+            _validatorCliente = validatorCliente;
+            _validadorTransacciones = validadorTransacciones;
+            _validadorTransacciones = validadorTransacciones;
         }
 
         [HttpGet("ConsultaClientes")]
@@ -56,13 +63,16 @@ namespace ApiSite.Controllers
         {
             try
             {
+
+                var validador = _validadorTransacciones.Validate(compras); 
+
                 return new GenericResponse<string>()
                 {
-                    Item = await _transaccionesAplication.AddCompras(compras),
+                    Item = validador.IsValid? await _transaccionesAplication.AddCompras(compras):string.Empty,
                     Status = new ResponseStatus()
                     {
-                        HttpCode = HttpStatusCode.OK,
-                        Message = ""
+                        HttpCode = validador.IsValid?HttpStatusCode.OK: HttpStatusCode.NotAcceptable,
+                        Message = validador.ToString()
                     },
                 };
             }
@@ -90,7 +100,7 @@ namespace ApiSite.Controllers
             {
                 return new GenericResponse<string>()
                 {
-                    Item = await _transaccionesAplication.AddPagos(pagos),
+                    Item = _validadorTransacciones.Validate(pagos).IsValid ? await _transaccionesAplication.AddPagos(pagos):string.Empty,
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.OK,
@@ -122,11 +132,11 @@ namespace ApiSite.Controllers
             {
                 return new GenericResponse<List<Transacciones>>()
                 {
-                    Item = await _transaccionesAplication.GetTransacciones(cliente.CodCliente),
+                    Item = _validatorCliente.Validate(cliente).IsValid ? await _transaccionesAplication.GetTransacciones(cliente.CodCliente):[],
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.OK,
-                        Message = ""
+                        Message = _validatorCliente.Validate(cliente).ToString() 
                     },
                 };
             }
@@ -152,13 +162,14 @@ namespace ApiSite.Controllers
         {
             try
             {
+
                 return new GenericResponse<TitularTargeta>()
                 {
-                    Item = await _transaccionesAplication.GetClienteCod(cliente.CodCliente),
+                    Item = _validatorCliente.Validate(cliente).IsValid? await _transaccionesAplication.GetClienteCod(cliente.CodCliente):new TitularTargeta(),
                     Status = new ResponseStatus()
                     {
                         HttpCode = HttpStatusCode.OK,
-                        Message = ""
+                        Message = _validatorCliente.Validate(cliente).ToString()
                     },
                 };
             }

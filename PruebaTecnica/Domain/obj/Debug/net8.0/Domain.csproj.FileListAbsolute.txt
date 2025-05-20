@@ -10,3 +10,4 @@ E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Domain\obj\Debug\net8.0\Domain.d
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Domain\obj\Debug\net8.0\refint\Domain.dll
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Domain\obj\Debug\net8.0\Domain.pdb
 E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Domain\obj\Debug\net8.0\ref\Domain.dll
+E:\Repo\PruebaTecnicaEdwinNolasco\PruebaTecnica\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache

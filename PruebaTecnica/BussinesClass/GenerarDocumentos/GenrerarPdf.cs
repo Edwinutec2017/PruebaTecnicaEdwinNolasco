@@ -47,7 +47,7 @@ namespace BussinesClass.GenerarDocumentos
             double columnWidth = width / 2;
             #region HEADER
             // headers
-            gfx.DrawString($"Titular: {clienteTransacciones.Clientes.NombreTitular.ToLower()}", headerFont, XBrushes.Black, leftMargin, yPos);
+            gfx.DrawString($"Titular: {clienteTransacciones.Clientes.NombreTitular.ToUpper()}", headerFont, XBrushes.Black, leftMargin, yPos);
             gfx.DrawString($"# tarjeta: {clienteTransacciones.Clientes.NumeroTargeta}", headerFont, XBrushes.Black, leftMargin + columnWidth, yPos);
             yPos += 20;
 
